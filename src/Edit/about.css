@@ -1,0 +1,52 @@
+.cardP{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap; 
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+}
+.activecardclass,.cardclass{
+    cursor: pointer;
+    font-size: 16px;
+    box-sizing: border-box;
+    height: 110px;
+    width: 20%;
+    /* margin-left: 1%; */
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 1%;
+    border-radius: 4%;
+    position: relative;
+}
+.cardclass{
+    border: 1px solid rgb(23, 162, 184);
+    color: rgb(23, 162, 184);
+}
+.cardclass:hover{
+    background: rgb(23, 162, 184);
+    color:white;
+}
+.activecardclass{
+    background: rgb(23, 162, 184);
+    color:white; 
+}
+
+.activecardclass .cardclass div{
+    text-align: center;
+    padding-top: 5%;
+}
+.activecardclass .cardclass span {
+    bottom: 4px;
+    font-weight: 600;
+    position: absolute;
+    padding: 3%;
+}
+
+@media only screen and (max-width: 782px) {
+  .cardclass{
+        width: 30%;
+  }
+
+}
