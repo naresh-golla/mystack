@@ -1,0 +1,41 @@
+.custombuttonstyle{
+    padding-top: 5px;
+    padding-left:10px;
+    padding-right: 10px;
+    padding-bottom:8px;
+    border: 1px solid rgb(23, 162, 184);
+    color: rgb(23, 162, 184);
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-top : 5px;
+    transition:  0.3s linear ;
+    -webkit-transition:  0.3 linear ;
+    cursor: pointer;
+}
+.custombuttonstyle:hover{
+    background-color: rgb(23, 162, 184);
+    color : white;
+    /* transition: all 1s linear forwards;
+    -webkit-transition: all 1s linear forwards; */
+}
+.custombuttonstyleClicked{
+    background-color: rgb(23, 162, 184);
+    color : white;
+    padding-top: 5px;
+    padding-left:10px;
+    padding-right: 10px;
+    padding-bottom:8px;
+    border: 1px solid rgb(23, 162, 184);
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-top : 5px;
+    transition:  0.3s linear ;
+    -webkit-transition:  0.3 linear ;
+    cursor: pointer;
+}
+
+.errormsg{
+    color:red;
+    font-size:12px;
+    clear: both;
+}

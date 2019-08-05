@@ -1,0 +1,87 @@
+.cardP{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap; 
+ 
+}
+.cardclass{
+    cursor: pointer;
+    font-size: 16px;
+    box-sizing: border-box;
+    height: 110px;
+    width: 25%;
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 1%;
+    border-radius: 4%;
+    position: relative;
+    transition: 0.2s linear;
+    -webkit-transition: 0.2 linear;
+}
+.cardclass{
+    border: 1px solid rgb(23, 162, 184);
+    color: rgb(23, 162, 184);
+}
+.cardclass:hover{
+    background: rgb(23, 162, 184);
+    color:white;
+    transition: 0.2s linear;
+    -webkit-transition: 0.2 linear;
+}
+.activecardclass{
+    background: rgb(23, 162, 184);
+    color:white; 
+    cursor: pointer;
+    font-size: 16px;
+    box-sizing: border-box;
+    height: 110px;
+    width: 25%;
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 1%;
+    border-radius: 4%;
+    position: relative;
+    transition: 0.2s linear;
+    -webkit-transition: 0.2 linear;
+}
+
+.cardclass div{
+    text-align: center;
+    padding-top: 5%;
+}
+.cardclass span {
+    text-align: center;
+    bottom: 5%;
+    font-weight: 600;
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    padding: 3%;
+}
+
+.activecardclass div{
+    text-align: center;
+    padding-top: 5%;
+}
+.activecardclass span {
+    text-align: center;
+    bottom: 5%;
+    font-weight: 600;
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    padding: 3%;
+}
+
+@media only screen and (max-width: 782px) {
+    .activecardclass,.cardclass{
+        width: 45%;
+  }
+  /* .activecardclass,.cardP{
+      padding-left:5%;
+  } */
+  .activecardclass,.cardclass span {
+      bottom: 8%;
+  }
+
+}

@@ -1,0 +1,33 @@
+.faFontLarge{
+    font-size: -webkit-xxx-large;
+}
+.layout{
+    display: flex;
+}
+.linkscards{
+    padding: 1%;
+    border-radius: 3%;
+    box-sizing: border-box;
+    padding-left: 1%;
+    border: 2px solid rgba(253, 253, 253, 0);
+}
+.linkscards img{
+    border-radius: 3%;
+}
+.linkscards:hover{
+    border: 2px solid rgb(23, 162, 184);
+    border-radius: 3%;
+}
+.linksactiveCards{
+    padding: 1%;
+    border-radius: 3%;
+    box-sizing: border-box;
+    padding-left: 1%;
+    border: 2px solid rgb(23, 162, 184);
+}
+@media only screen and (max-width: 782px) {
+    .layout{
+        display: flex;
+        flex-direction: column;
+    }
+}
