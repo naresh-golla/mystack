@@ -96,74 +96,11 @@ class Landing extends Component {
                   </a>
             </div >
 
-            <div className="section__image">
-              <div className="section__image-inner">
-                <img src="https://keys.casa/wp-content/themes/casa-marketing/resources/images/temp/NodeIllustration@2x.png"
-                  alt="" width="724" height="687" />
-              </div>
-            </div>
+
           </div>
 
           <span className="section-after"></span>
         </section >
-        <section className="section-offer section--gradient">
-          <div className="shell shell--large">
-            <div className="section__container">
-              <aside className="section__aside">
-                <header className="section__head">
-                  <h2>
-                    What do you get?
-                          </h2>
-                  <p>
-                    Access the Lightning Network and run a Bitcoin full node - without the command-line
-                    hassle.
-                          </p>
-                </header>
-
-                <div className="section__body">
-                  <h6>
-                    WHAT’S IN THE BOX
-                          </h6>
-
-                  <ul>
-                    <li>Bitcoin Full Node</li>
-
-                    <li>Lightning Node</li>
-
-                    <li>Seamless setup with Autopilot</li>
-
-                    <li>Handcrafted NodeOS, ready out of the box</li>
-
-                    <li>Advanced user settings for those who code</li>
-
-                    <li>1 TB hard drive</li>
-
-                    <li>Raspberry Pi 3B+ and 1 GB RAM</li>
-
-                    <li>Runs quiet and compact</li>
-
-                    <li>Works with Windows, Linux, and Mac</li>
-                  </ul>
-                </div>
-              </aside>
-
-              <div className="section__content">
-                <div className="section__image">
-                  <div className="section__image-inner">
-                    <img src="https://keys.casa/wp-content/themes/casa-marketing/resources/images/node-dashboard-big.png"
-                      alt="" width="887" height="810" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-        <section className="section-separator">
-          <div className="shell shell--large"></div>
-        </section>
-
       </div>
     );
   }

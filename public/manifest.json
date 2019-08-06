@@ -1,6 +1,6 @@
 {
-  "short_name": "Animal Kingdom",
-  "name": "Animal Kingdom",
+  "short_name": "My Stack",
+  "name": "My Stack",
   "icons": [
     {
       "src": "https://helloblockstack.com/icon-192x192.png",
@@ -13,4 +13,3 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
-

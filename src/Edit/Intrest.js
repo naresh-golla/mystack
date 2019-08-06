@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { customInputForm } from "./customInputForm";
 import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
 import { Label, Input } from "reactstrap";
 import * as Yup from "yup";
@@ -60,7 +59,7 @@ class Intrest extends Component {
     searchFun = (e) => {
         console.log(e.target.value);
         let tempArr = [];
-        this.state.intrestDefault.map(item => {
+        this.state.intrestDefault.map((item, index) => {
             if (item.toLocaleLowerCase().match(e.target.value.toLocaleLowerCase())) {
                 tempArr.push(item);
             }
@@ -101,30 +100,30 @@ class Intrest extends Component {
                     <Col md={6} xs={10}>
                         <Form>
                             <FormGroup>
-                                <Label htmlIntrests="forfirstname">Your Intrests</Label>
+                                <Label htmlFor="forfirstname">Your Intrests</Label>
                                 <Input type="text" placeholder="choose two to five intrests" onChange={this.searchFun} />
                             </FormGroup>
                         </Form>
                         <div style={{ "display": "flex", "flexDirection": "row", "flexFlow": "wrap", "padding": "10px 5px 30px" }}>
                             {
-                                (this.state.searchArr.length == 0) ?
+                                (this.state.searchArr.length === 0) ?
 
-                                    (this.state.intrestDefault.map(item => {
-                                        return <CustomButton item={item} clickedbtn={this.clickedbtnFun} />
+                                    (this.state.intrestDefault.map((item, index) => {
+                                        return <CustomButton item={item} key={index} clickedbtn={this.clickedbtnFun} />
                                     })) :
 
                                     (
-                                        this.state.searchArr && this.state.searchArr.map(item => {
-                                            return <CustomButton item={item} clickedbtn={this.clickedbtnFun} />
+                                        this.state.searchArr && this.state.searchArr.map((item, index) => {
+                                            return <CustomButton item={item} key={index} clickedbtn={this.clickedbtnFun} />
                                         })
                                     )
                             }
 
                         </div>
-                        {this.state.intrestSelected.length == 0 ? <p className="errormsg">selection is required</p> : ""}
+                        {this.state.intrestSelected.length === 0 ? <p className="errormsg">selection is required</p> : ""}
                         {(this.state.intrestSelected.length <= 2 && this.state.intrestSelected.length > 0) ? <p className="errormsg">Mininum 3 selections is required</p> : ""}
                         {this.state.intrestSelected.length > 5 ? <p className="errormsg">Maximum 5 selections only</p> : ""}
-                        <Button>Submit</Button>
+                        <Button onClick={() => this.props.history.push("/edit/hobby")}>Submit</Button>
 
                     </Col>
                     <Col md={3} xs={1}></Col>

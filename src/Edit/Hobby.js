@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { customInputForm } from "./customInputForm";
 import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
 import { Label, Input } from "reactstrap";
 import * as Yup from "yup";
@@ -101,7 +100,7 @@ class Hobby extends Component {
     searchFun = (e) => {
         console.log(e.target.value);
         let tempArr = [];
-        this.state.hobbyintrestDefault.map(item => {
+        this.state.hobbyintrestDefault.map((item, index) => {
             if (item.toLocaleLowerCase().match(e.target.value.toLocaleLowerCase())) {
                 tempArr.push(item);
             }
@@ -129,12 +128,7 @@ class Hobby extends Component {
     }
     render() {
         console.log(this.state.hobbyintrestSelected);
-        const IntrestSchema = Yup.object().shape({
-            city: Yup.string()
-                .min(1, "Too Short!")
-                .max(50, "Too Long!")
-                .required("Required")
-        });
+
         return (
             <Container fluid={true} >
                 <Row>
@@ -142,30 +136,30 @@ class Hobby extends Component {
                     <Col md={6} xs={10}>
                         <Form>
                             <FormGroup>
-                                <Label htmlIntrests="forfirstname">What do you do</Label>
+                                <Label htmlFor="forfirstname">What do you do</Label>
                                 <Input type="text" placeholder="Enter your occupation or hobby" onChange={this.searchFun} />
                             </FormGroup>
                         </Form>
                         <div style={{ "display": "flex", "flexDirection": "row", "flexFlow": "wrap", "padding": "10px 5px 30px" }}>
                             {
-                                (this.state.hobbysearchArr.length == 0) ?
+                                (this.state.hobbysearchArr.length === 0) ?
 
-                                    (this.state.hobbyintrestDefault.map(item => {
-                                        return <CustomButton item={item} clickedbtn={this.clickedbtnFun} />
+                                    (this.state.hobbyintrestDefault.map((item, index) => {
+                                        return <CustomButton item={item} key={index} clickedbtn={this.clickedbtnFun} />
                                     })) :
 
                                     (
-                                        this.state.hobbysearchArr && this.state.searchArr.map(item => {
-                                            return <CustomButton item={item} clickedbtn={this.clickedbtnFun} />
+                                        this.state.hobbysearchArr && this.state.searchArr.map((item, index) => {
+                                            return <CustomButton item={item} key={index} clickedbtn={this.clickedbtnFun} />
                                         })
                                     )
                             }
 
                         </div>
-                        {this.state.hobbyintrestSelected.length == 0 ? <p className="errormsg">Selection is required</p> : ""}
+                        {this.state.hobbyintrestSelected.length === 0 ? <p className="errormsg">Selection is required</p> : ""}
                         {(this.state.hobbyintrestSelected.length > 3) ? <p className="errormsg">Too many selections, you can select maximum 3 selections</p> : ""}
 
-                        <Button>Submit</Button>
+                        <Button onClick={() => this.props.history.push("/edit/about")}>Submit</Button>
 
                     </Col>
                     <Col md={3} xs={1}></Col>

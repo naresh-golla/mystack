@@ -9,6 +9,15 @@ class Bio extends Component {
         super();
         this.state = {}
     }
+    hanleSubmit = (e) => {
+
+    }
+    changevalue = (e) => {
+        console.log(e)
+    }
+    handleChangeInput = (e) => {
+        console.log(e.target.value, "event")
+    }
     render() {
         const SignupSchema = Yup.object().shape({
             firstname: Yup.string()
@@ -26,13 +35,13 @@ class Bio extends Component {
         return (
             <Container fluid={true} >
                 <Row>
-                    <Col md={3} xs={1}></Col>
-                    <Col md={6} xs={10}>
+                    <Col md={3} sm={1} xs={1}></Col>
+                    <Col md={6} sm={10} xs={10}>
                         <Formik
                             initialValues={{
                                 firstname: '',
                                 lastname: '',
-                                email: ''
+                                emails: ''
                             }}
                             validationSchema={SignupSchema}
                             onSubmit={values => {
@@ -50,13 +59,13 @@ class Bio extends Component {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label htmlFor="exampleEmail">Email</Label>
-                                    <Field name="email" type={'email'} component={customInputForm} />
+                                    <Field name="emails" type={'email'} component={customInputForm} />
                                 </FormGroup>
-                                <Button>Submit</Button>
+                                <Button onClick={() => this.props.history.push("/edit/pic")} className="btn btn-outline-primary">Submit</Button>
                             </Form>
                         </Formik>
                     </Col>
-                    <Col md={3} xs={1}></Col>
+                    <Col md={3} sm={1} xs={1}></Col>
                 </Row>
             </Container>
         )

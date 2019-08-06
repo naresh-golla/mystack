@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Custmbutton.css";
 class CustomButton extends Component {
     constructor(props) {
         super(props);

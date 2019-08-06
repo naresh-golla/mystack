@@ -5,7 +5,6 @@ import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
 import { Label, Input } from "reactstrap";
 import * as Yup from "yup";
 import Script from "react-load-script";
-import "./location.css";
 class Location extends Component {
     constructor(props) {
         super(props);
@@ -86,7 +85,7 @@ class Location extends Component {
                                         <span><i className="fa fa-map-marker" style={{ "color": "#55aaaa", "fontSize": "28px", "position": "absolute", "marginTop": "-33px", "marginLeft": "8px" }}></i></span>
                                     </FormGroup>
 
-                                    <Button>Submit</Button>
+                                    <Button onClick={() => this.props.history.push("/edit/intrest")}>Submit</Button>
                                 </Form>
                             </Formik>
                         </div>

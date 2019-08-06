@@ -56,7 +56,7 @@ class Design extends Component {
                             </div>
                         </Row>
                         <p />
-                        <Button>Submit</Button>
+                        <Button onClick={() => this.props.history.push("/edit/color")}>Submit</Button>
                     </Col>
                     <Col md={2} xs={1}></Col>
                 </Row>

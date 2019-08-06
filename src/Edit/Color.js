@@ -44,7 +44,7 @@ class Color extends Component {
                             </div>
                         </Row>
                         <p />
-                        <Button>Submit</Button>
+                        <Button onClick={() => this.props.history.push("/edit/domain")}>Submit</Button>
                     </Col>
                     <Col md={2} xs={1}></Col>
                 </Row>

@@ -42,7 +42,7 @@ class Link extends Component {
                                     <Label htmlFor="forlink">Enter a link to your {this.props.setAboutDetails.title} </Label>
                                     <Field name="link" type={'text'} component={customInputForm} />
                                 </FormGroup>
-                                <Button>Submit</Button>
+                                <Button onClick={() => this.props.history.push("/edit/design")}>Submit</Button>
                             </Form>
                         </Formik>
                     </Col>

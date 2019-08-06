@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 // import { Container, Row, Col } from 'reactstrap';
 import { Container, Row, Col } from 'react-bootstrap';
-import "./Progress.css"
 class Progress extends Component {
     constructor() {
         super();
@@ -9,15 +8,15 @@ class Progress extends Component {
     }
     render() {
         return (
-            <div style={{ "marginTop": "5%" }}>
+            <div style={{ "marginTop": "5%", "paddingBottom": "5%" }}>
 
                 <Container fluid={true} >
                     <Row>
-                        <Col md={1} className="d-none d-sm-block"></Col>
-                        <Col md={10} xs={12}>
-                            <div class="root">
-                                <ul class="progressbar">
-                                    <li class="active">Name</li>
+                        <Col md={2} className="d-none d-sm-block"></Col>
+                        <Col md={8} sm={12} xs={12}>
+                            <div className="root">
+                                <ul className="progressbar">
+                                    <li className="active">Bio</li>
                                     <li>Pic</li>
                                     <li>Location</li>
                                     <li>Intrests</li>
@@ -29,7 +28,7 @@ class Progress extends Component {
 
                             </div>
                         </Col>
-                        <Col md={1} className="d-none d-sm-block"></Col>
+                        <Col md={2} className="d-none d-sm-block"></Col>
                     </Row>
                 </Container>
 

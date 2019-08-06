@@ -15,6 +15,7 @@ class Pic extends Component {
                                 component={FileUpload}
                             />
                         </Formik>
+                        <Button onClick={() => this.props.history.push("/edit/location")} className="btn btn-outline-primary">Submit</Button>
                     </Col>
                 </Row>
             </Container>
