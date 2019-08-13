@@ -195,7 +195,7 @@
 .progressbar li.active + li:after{
     background: #3aac5d;
     }
-.progressbar li.active + li:before{
+.progressbar li.active:before{
     border-color: #3aac5d;
     background: #3aac5d;
     color: white

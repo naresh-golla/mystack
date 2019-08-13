@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { customInputForm } from "./customInputForm";
-import { Formik, Field } from "formik"
-import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
+import { Formik, Field, ErrorMessage, Form } from "formik"
+import { Container, Row, Col, FormGroup, Button } from 'react-bootstrap';
 import { Label, } from "reactstrap";
 import * as Yup from "yup";
 class Link extends Component {
@@ -10,7 +10,7 @@ class Link extends Component {
         this.state = {}
     }
     render() {
-        const SignupSchema = Yup.object().shape({
+        const LinkSchema = Yup.object().shape({
             link: Yup.string()
                 .required("Required")
                 .url("Invalid url")
@@ -25,26 +25,33 @@ class Link extends Component {
                             <i className={`faFontLarge ${this.props.setAboutDetails.icon}`}></i>
                         </div>
                         <div className="text-center">
-                            <h2>{this.props.setAboutDetails.title}</h2>
+                            <h1>{this.props.setAboutDetails.title}</h1>
                         </div>
                         <Formik
                             initialValues={{
-                                name: '',
-
+                                link: '',
                             }}
-                            validationSchema={SignupSchema}
-                            onSubmit={values => {
-                                // same shape as initial values
-                                console.log(values);
-                            }}>
-                            <Form>
-                                <FormGroup>
-                                    <Label htmlFor="forlink">Enter a link to your {this.props.setAboutDetails.title} </Label>
-                                    <Field name="link" type={'text'} component={customInputForm} />
-                                </FormGroup>
-                                <Button onClick={() => this.props.history.push("/edit/design")}>Submit</Button>
-                            </Form>
-                        </Formik>
+                            validationSchema={LinkSchema}
+                            onSubmit={fields => {
+                                console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+                            }}
+                            render={({ errors, status, touched }) => (
+                                <Form>
+                                    <div className="form-group">
+                                        <Label htmlFor="forlink">Enter a link to your {this.props.setAboutDetails.title} </Label>
+                                        <Field name="link" type="text"
+                                            placeholder="Enter your link"
+                                            className={'form-control' + (errors.link && touched.link ? ' is-invalid' : '')} />
+
+                                        <ErrorMessage name="link" component="div" className="invalid-feedback" />
+                                    </div>
+                                    <div className="form-group">
+                                        <button type="submit" className="btn btn-primary mr-2">Submit</button>
+                                        <Button onClick={() => this.props.history.push("/edit/design")}>Submit</Button>
+                                    </div>
+                                </Form>
+                            )}
+                        />
                     </Col>
                     <Col md={3} xs={1}></Col>
                 </Row>

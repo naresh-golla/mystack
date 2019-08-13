@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { customInputForm } from "./customInputForm";
-import { Formik, Field } from "formik"
-import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
+import { Formik, Field, ErrorMessage, Form } from "formik"
+import { Container, Row, Col, FormGroup, Button } from 'react-bootstrap';
 import { Label, Input } from "reactstrap";
 import * as Yup from "yup";
 import Script from "react-load-script";
@@ -32,29 +32,24 @@ class Location extends Component {
         let addressObject = this.autocomplete.getPlace();
         let address = addressObject.address_components;
 
-        // Check if address is valid
-        // if (address) {
-        //     // Set State
-        //     this.setState(
-        //         {
-        //             city: address[0].long_name,
-        //             query: addressObject.formatted_address,
-        //         }
-        //     );
-        // }
     }
     render() {
         const LocationSchema = Yup.object().shape({
             city: Yup.string()
-                .min(1, "Too Short!")
-                .max(50, "Too Long!")
-                .required("Required")
+                .min(2, "First name is Too Short!")
+                .max(62, "First name is Too Long!")
+                .required("Required"),
+
         });
         return (
             <Container fluid={true} >
                 <Row>
                     <Col md={3} xs={1}></Col>
                     <Col md={6} xs={10}>
+                        <div className="text-center">
+                            <h1>Enter your city</h1>
+                            <p>&nbsp;</p>
+                        </div>
                         <div>
                             <Script
                                 url="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXMpUMMrjVgbWeWF99SfuFQhe06-ST62s&libraries=places"
@@ -64,30 +59,29 @@ class Location extends Component {
 
                             <Formik
                                 initialValues={{
-                                    city: ''
+                                    city: '',
                                 }}
                                 validationSchema={LocationSchema}
-                                onSubmit={values => {
-                                    // same shape as initial values
-                                    console.log(values);
-                                }}>
-                                <Form>
-                                    <FormGroup id="locationField">
-                                        <Label htmlFor="forcity">Where do you Live</Label>
-
-                                        <Field name="city"
-                                            type={'text'}
-                                            id="autocomplete"
-                                            placeholder="Enter your city"
-                                            component={customInputForm}
-                                            style={{ "paddingLeft": "30px" }}
-                                        />
-                                        <span><i className="fa fa-map-marker" style={{ "color": "#55aaaa", "fontSize": "28px", "position": "absolute", "marginTop": "-33px", "marginLeft": "8px" }}></i></span>
-                                    </FormGroup>
-
-                                    <Button onClick={() => this.props.history.push("/edit/intrest")}>Submit</Button>
-                                </Form>
-                            </Formik>
+                                onSubmit={fields => {
+                                    console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+                                }}
+                                render={({ errors, status, touched }) => (
+                                    <Form>
+                                        <div className="form-group">
+                                            <Label htmlFor="city">Enter your city</Label>
+                                            <Field name="city" type="text"
+                                                style={{ "paddingLeft": "30px" }}
+                                                placeholder="Enter your city"
+                                                id="autocomplete" className={'form-control' + (errors.city && touched.city ? ' is-invalid' : '')} />
+                                            <span><i className="fa fa-map-marker" style={{ "color": "#55aaaa", "fontSize": "28px", "position": "absolute", "marginTop": "-33px", "marginLeft": "8px" }}></i></span>
+                                            <ErrorMessage name="city" component="div" className="invalid-feedback" />
+                                        </div>
+                                        <div className="form-group">
+                                            <button type="submit" className="btn btn-primary mr-2">Submit</button>
+                                        </div>
+                                    </Form>
+                                )}
+                            />
                         </div>
                     </Col>
                     <Col md={3} xs={1}></Col>

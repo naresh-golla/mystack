@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { customInputForm } from "./customInputForm";
-import { Formik, Field } from "formik"
-import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
+import { Formik, Field, ErrorMessage, Form } from "formik"
+import { Container, Row, Col, FormGroup, Button } from 'react-bootstrap';
 import { Label, } from "reactstrap";
 import * as Yup from "yup";
 import { customInputDomain } from "./customInputDomain";
@@ -15,16 +15,16 @@ class Domain extends Component {
         }
     }
     changedValue = (e) => {
-        this.setState({
-            customdomain: e.target.value
-        })
+        // this.setState({
+        //     customdomain: e.target.value
+        // })
+        console.log(e.target)
     }
     render() {
-        const SignupSchema = Yup.object().shape({
-            domainlink: Yup.string()
-                .required("Required")
-                .min(3)
+        const DomainSchema = Yup.object().shape({
+            domain: Yup.string().min(3)
                 .max(10)
+                .required("required"),
         });
 
         return (
@@ -36,7 +36,8 @@ class Domain extends Component {
                             <i className="faFontLarge fa fa-globe"></i>
                         </div>
                         <div className="text-center">
-                            <h2>Enter your custom Domain</h2>
+                            <h1>Enter your custom Domain</h1>
+                            <p>&nbsp;</p>
                         </div>
                         <div className="text-center" style={{ "paddingTop": "5%" }}>
                             <h2 className="text-info">https://mystack.com/{this.state.customdomain}</h2>
@@ -44,22 +45,28 @@ class Domain extends Component {
                         <div style={{ "paddingTop": "5%" }}>
                             <Formik
                                 initialValues={{
-                                    domainlink: '',
+                                    domain: '',
                                 }}
-                                validationSchema={SignupSchema}
-                                onSubmit={values => {
-                                    // same shape as initial values
-                                    console.log(values);
-                                }}>
-                                <Form>
-                                    <FormGroup>{console.log(this.state.customdomain, "././")}
-                                        <Field placeholder="" name="domainlink" type={'text'} onChange={this.changedValue} value={this.state.customdomain} component={customInputDomain} />
-                                    </FormGroup>
-                                    {/* <Input placeholder="enter your name" onChange={this.changedValue} value="a" /> */}
-                                    <p />
-                                    <Button>Submit</Button>
-                                </Form>
-                            </Formik>
+                                validationSchema={DomainSchema}
+                                onSubmit={fields => {
+                                    console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+                                }}
+                                render={({ errors, status, touched }) => (
+                                    <Form>
+                                        <div className="form-group">
+                                            <Label htmlFor="domain">Enter name for your customised link </Label>
+                                            <Field name="domain" type="text"
+                                                placeholder="Enter your domain"
+                                                onKeyUp={this.changedValue((e) => { console.log(e) })}
+                                                className={'form-control' + (errors.domain && touched.domain ? ' is-invalid' : '')} />
+                                            <ErrorMessage name="domain" component="div" className="invalid-feedback" />
+                                        </div>
+                                        <div className="form-group">
+                                            <button type="submit" className="btn btn-primary mr-2">Submit</button>
+                                        </div>
+                                    </Form>
+                                )}
+                            />
                         </div>
                     </Col>
                     <Col md={3} xs={1}></Col>

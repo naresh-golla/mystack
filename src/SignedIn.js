@@ -6,6 +6,7 @@ import { appConfig, ME_FILENAME } from './constants'
 import Edit from "./Edit";
 // import Bio from "./Edit/Bio";
 import './SignedIn.css'
+import Profile from './Profile/Profile';
 
 
 class SignedIn extends Component {
@@ -61,7 +62,7 @@ class SignedIn extends Component {
 
         <Switch>
           <Route path="/edit/" component={Edit} />
-
+          <Route path={`/${username}`} component={Profile} />
         </Switch>
 
       </div>

@@ -87,17 +87,15 @@ class Intrest extends Component {
     }
     render() {
         console.log(this.state.intrestSelected);
-        const IntrestSchema = Yup.object().shape({
-            city: Yup.string()
-                .min(1, "Too Short!")
-                .max(50, "Too Long!")
-                .required("Required")
-        });
         return (
             <Container fluid={true} >
                 <Row>
                     <Col md={3} xs={1}></Col>
                     <Col md={6} xs={10}>
+                        <div className="text-center">
+                            <h1>Your Intrests</h1>
+                            <p>&nbsp;</p>
+                        </div>
                         <Form>
                             <FormGroup>
                                 <Label htmlFor="forfirstname">Your Intrests</Label>

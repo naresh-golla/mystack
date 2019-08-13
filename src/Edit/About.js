@@ -26,7 +26,7 @@ class About extends Component {
         }
     }
     handleClick = (item) => {
-        console.log(item)
+        // console.log(item)
         this.setState({
             activeDiv: item.id,
             activeItem: item
@@ -45,9 +45,13 @@ class About extends Component {
                     <Col md={3} xs={1}></Col>
                     <Col md={6} xs={10}>
                         <div>
-                            <p>What Do you want to highlight on your page</p>
+                            <div className="text-center">
+                                <h1>What do you want to highlight on your page</h1>
+                                <p>&nbsp;</p>
+                            </div>
                             <p></p>
                             <Row>
+                                <p>What do you want to highlight on your page</p>
                                 <Col md={12} xs={12}>
                                     <div className="cardP" >
                                         {this.state.card.map((item, index) => {

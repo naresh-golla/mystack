@@ -57,7 +57,10 @@ class Edit extends Component {
                 <Progress />
 
                 <Switch>
-                    <Route exact path="/edit/Bio" component={Bio} />
+                    <Route
+                        exact path="/edit/Bio"
+                        component={props => <Bio {...props} />}
+                    />
                     <Route exact
                         path="/edit/Pic"
                         component={Pic}

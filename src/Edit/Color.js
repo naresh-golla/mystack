@@ -19,7 +19,7 @@ class Color extends Component {
         })
     };
     render() {
-        console.log(this.state.color)
+        //console.log(this.state.color)
 
         return (
             <Container fluid={true} >
@@ -31,7 +31,7 @@ class Color extends Component {
                         </div>
 
                         <div className="text-center">
-                            <h2 style={{ color: `${this.state.color}` }} > Customize color for this layout</h2>
+                            <h1 style={{ color: `${this.state.color}` }} > Customize color for this layout</h1>
                             <div className="colorPicker">
                                 <IroColorPicker width="210" color={this.state.color} onColorChange={this.onColorChange} />
                             </div>

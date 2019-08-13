@@ -41,7 +41,7 @@ class Design extends Component {
                             <i className="faFontLarge fa fa-paint-brush"></i>
                         </div>
                         <div className="text-center">
-                            <h2>Choose your layout</h2>
+                            <h1>Choose your layout</h1>
                         </div>
                         <Row>
                             <div className="layout">

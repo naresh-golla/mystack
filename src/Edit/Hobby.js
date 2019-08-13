@@ -98,7 +98,7 @@ class Hobby extends Component {
         }
     }
     searchFun = (e) => {
-        console.log(e.target.value);
+        //console.log(e.target.value);
         let tempArr = [];
         this.state.hobbyintrestDefault.map((item, index) => {
             if (item.toLocaleLowerCase().match(e.target.value.toLocaleLowerCase())) {
@@ -134,6 +134,10 @@ class Hobby extends Component {
                 <Row>
                     <Col md={3} xs={1}></Col>
                     <Col md={6} xs={10}>
+                        <div className="text-center">
+                            <h1>What do you do</h1>
+                            <p>&nbsp;</p>
+                        </div>
                         <Form>
                             <FormGroup>
                                 <Label htmlFor="forfirstname">What do you do</Label>

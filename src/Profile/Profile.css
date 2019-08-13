@@ -1,0 +1,220 @@
+*{
+    box-sizing: border-box;
+    }
+.paddingTop{
+    padding-top: 20%;
+}
+.bg{
+    background-color: #26A0D9;
+    background: linear-gradient(135deg, #26A0D9 0%, #26A0D9 30%, #41ffff 100%) fixed;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 5%;
+    display: flex;
+}
+.divLeft{
+    min-height: 100%;
+    /* display: table; */
+}
+.divRight{
+    padding: 1%;
+    display: flex;
+    margin: auto;
+}
+.userCard{
+    flex-direction: column;
+    display: flex;
+    min-width: 400px;
+    max-width: calc(100vw - 10px);
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 60px;
+    height: 100%;
+    padding-bottom: 5%;
+}
+.pic{
+    width: 120px;
+    height: 120px;
+    background-image: url(https://aboutme.imgix.net/background/users/n/a/r/naresh.golla_1392125273_22.jpg?q=40&dpr=2&auto=format&fit=max&w=120&h=120&rect=6,0,254,254);
+    background-size: cover;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: -60px auto 20px;
+}
+.heading h1{
+    font-size: 20px !important;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 0;
+    color: #333;
+}
+.heading h2{
+    font-size: 16px !important;
+     letter-spacing: 0.2px;
+    font-weight: 700;
+    margin-top: 1%;
+    color: #333;
+}
+.aboutButton{
+    padding-top: 5%;
+    font-size: 25px
+}
+.facon{
+    padding-right: 5%;
+    font-size: 24px;
+}
+.aboutButton>a:hover {
+    color: white!important;
+}
+.context{
+    padding-top: 5%;
+    display:flex;
+    flex-direction: column;
+    margin: 0px 5%;
+    text-align: left;
+}
+.Edu_Exp{
+    /* padding-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row; */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5%;
+    }
+.Edu_Exp h4{
+    color:#999;
+    font-size: 14px !important;
+    letter-spacing: 0.2px;
+   font-weight: 400;
+   margin-top: 1%;
+   text-transform: uppercase;
+}
+.Edu_Exp li{
+    list-style: none;
+}
+.Edu_Exp ul{
+    padding-left: 0px;
+}
+.socialIcons li a i{
+    font-size: 25px; 
+    color:#26A0D9;
+}
+.btn-purple {
+font-weight: 500;
+}
+.editLeftPanel{
+    width: 400px;
+    top: 0px;
+    left:0px;
+    /* position: absolute; */
+    height: 100%;
+    background: aliceblue;
+    padding-top: 20%
+}
+.editLeftPanel h1{
+    font-size: 25px;
+}
+.alignCenter{
+    min-width: 400px;
+    max-width: 600px;
+    margin: auto;
+}
+/* Accordian CSS */
+.myaccordion {
+  max-width: 500px;
+  margin: 10px auto;
+  box-shadow: 0 0 1px rgba(0,0,0,0.1);
+}
+
+.myaccordion .card,
+.myaccordion .card:last-child .card-header {
+  border: none;
+}
+
+.myaccordion .card-header {
+  /* border-bottom-color: #9c9fa1; */
+  background: transparent;
+}
+
+.myaccordion .fa-stack {
+  font-size: 18px;
+}
+
+.card-header{
+  width: 100%;
+  font-weight: bold;
+  color: #004987;
+}
+.accordion>.card .card-header {
+    margin-bottom: 0px;
+}
+.cancelSave .btn-toolbar{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1%;
+}
+.cancelSave .btn-toolbar button{
+    width: 49%;
+}
+.editPic{
+    min-height: 300px;
+    margin: auto;
+    width: 100%;
+    border: 1px solid;
+}
+.changePhoto .btn-toolbar{
+    display: flex;
+    padding-top: 2%;
+}
+.changePhoto .btn-toolbar button{
+    width: 99%;
+}
+.spotButtonDiv{
+    display: flex;
+    flex-direction: column;
+}
+.spotButton{
+    width: 100%;
+    /* display: flex; */
+    height: auto;
+    /* justify-content: left; */
+    padding: 2%;
+    border: 1px solid;
+    margin-bottom: 2%;
+    border-radius: 4px;
+}
+.spotButton a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.spotButton a i{
+    padding-right: 5%;
+}
+.card-body p b{
+    font-weight: 400;
+}
+.card-header{
+    cursor: pointer;
+}
+/*END Accordian CSS*/
+@media only screen and (min-width: 782px) {
+    .paddingTop{
+        padding-top: 15%;
+    }
+    .context{
+        margin: 0px 15%;
+        font-size: 104%;
+    }
+    .Edu_Exp{
+        padding-top: 5%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        }
+}

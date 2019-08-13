@@ -9,6 +9,11 @@ class Pic extends Component {
                 <Row>
                     <Col md={3} xs={2}></Col>
                     <Col md={6} xs={8}>
+                        <div className="text-center">
+                            <h1>Upload Pic</h1>
+                            <p>&nbsp;</p>
+                        </div>
+
                         <Formik>
                             <Field
                                 name="image"
