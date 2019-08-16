@@ -20,9 +20,10 @@ const ViewProfile = observer(props => {
                         </section>
                         <section>
                             <div className="aboutButton">
-                                <a href="viewProfile.val.url" target="_blank" className="btn-purple"><i
-                                    className={`${viewProfile.val.icon} 'facon'}`}
-                                ></i>{viewProfile.val.title}</a>
+                                <a href={viewProfile.val.url} target="_blank" rel="noopener noreferrer" className="btn-purple">
+                                    <i className={`${viewProfile.val.icon} 'facon'}`}></i>
+                                    {viewProfile.val.title}
+                                </a>
                             </div>
                         </section>
                         <section>
