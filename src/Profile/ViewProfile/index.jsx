@@ -1,8 +1,11 @@
 import React from 'react';
 import { observer } from "mobx-react";
+import { get } from 'lodash';
 
 const ViewProfile = observer(props => {
     const { viewProfile } = props;
+
+    const { bio, spotlight, education, work } = viewProfile;
     console.log(viewProfile, "viewProfile....");
     return (
         <div className="alignCenter">
@@ -20,15 +23,15 @@ const ViewProfile = observer(props => {
                         </section>
                         <section>
                             <div className="aboutButton">
-                                <a href={viewProfile.val.url} target="_blank" rel="noopener noreferrer" className="btn-purple">
-                                    <i className={`${viewProfile.val.icon} 'facon'}`}></i>
-                                    {viewProfile.val.title}
+                                <a href={spotlight.url} target="_blank" rel="noopener noreferrer" className="btn-purple">
+                                    <i className={`${spotlight.icon} 'facon'}`}></i>
+                                    {spotlight.title}
                                 </a>
                             </div>
                         </section>
                         <section>
                             <div className="context">
-                                {viewProfile.bio !== "" ? (<p>{viewProfile.bio}</p>) :
+                                {bio !== "" ? (<p>{bio}</p>) :
                                     (<div><p>Hi, I am a professional web developer. (Though I have started my professional career in software development with Visual Basic.net) . Over the last few years I have developed a wide range of applications/softwares usingJava, HTML , PHP , Javascript, jQuery , Oracle andMySQL for different companies and business.</p>
                                         <p>I have also experience in OOP, MVC Framework, Java . I want to achieve the peak position by providing high quality work and by learning new technologies.And have experience of 4 years in PHP , 1 years inWordpress. Though I am working most of my time with PHP but I love Java most among all the programming language.</p>
                                         <p>Now I am working for a software company Tech Mahindra</p></div>)}
@@ -39,19 +42,16 @@ const ViewProfile = observer(props => {
                                 <div className="work">
                                     <h4>Work Experience</h4>
                                     <ul className="work_ul">
-                                        <li> Home</li>
-                                        <li>Menu 1</li>
-                                        <li>Menu 2</li>
-                                        <li>Menu 3</li>
+                                        <li> Current : {get(work, "current", "")} </li>
+                                        <li> Previous : {get(work, "previous", "")} </li>
                                     </ul>
                                 </div>
                                 <div className="work">
                                     <h4>Education</h4>
                                     <ul className="exp_ul">
-                                        <li> Home</li>
-                                        <li>Menu 1</li>
-                                        <li>Menu 2</li>
-                                        <li>Menu 3</li>
+                                        <li> School : {get(education, "school", "")}</li>
+                                        <li> College : {get(education, "college", "")}</li>
+                                        <li> University : {get(education, "univ", "")}</li>
                                     </ul>
                                 </div>
                             </div>

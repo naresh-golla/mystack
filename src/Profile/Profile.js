@@ -14,7 +14,7 @@ class Profile extends Component {
         return (
             <div className="bg">
                 <div className="divLeft">
-                    <EditProfile editProfile={profileStore} />
+                    <EditProfile />
                 </div>
                 <div className="divRight">
                    <ViewProfile viewProfile={profileStore} />
