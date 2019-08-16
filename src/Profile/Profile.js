@@ -3,7 +3,7 @@ import { Container, Row, Col, Accordion, Card, Button, ButtonToolbar, Form, Form
 import { Label, Input } from "reactstrap"
 import EditProfile from './EditProfile';
 import ViewProfile from './ViewProfile';
-import {profileStore} from "../services/store-service"
+import { profileStore } from "../services/store-service"
 import "./Profile.css"
 class Profile extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class Profile extends Component {
                     <EditProfile editProfile={profileStore} />
                 </div>
                 <div className="divRight">
-                   <ViewProfile viewProfile={profileStore} />
+                    <ViewProfile viewProfile={profileStore} />
                 </div>
             </div>
         )

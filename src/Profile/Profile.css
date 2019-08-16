@@ -174,9 +174,11 @@ font-weight: 500;
 .changePhoto .btn-toolbar button{
     width: 99%;
 }
-.spotButtonDiv{
+.spotButtonDiv {
     display: flex;
     flex-direction: column;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 .spotButton{
     width: 100%;

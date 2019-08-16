@@ -69,20 +69,15 @@ class Intrest extends Component {
         })
     }
     clickedbtnFun = (val, shouldupdate) => {
-        let valPushed = [];
-        valPushed.push(val);
         if (shouldupdate !== true) {
             this.setState({
-                intrestSelected: [...this.state.intrestSelected, ...valPushed]
+                intrestSelected: [...this.state.intrestSelected, val]
             })
         } else {
-            let valRemoved = this.state.intrestSelected.splice(this.state.intrestSelected.indexOf(val), 1);
-            console.log(valRemoved);
-            let removedlist = [];
-            console.log(removedlist.push(valRemoved));
-            // this.setState({
-            //     intrestSelected: [ ...valRemoved]
-            // })
+            this.state.intrestSelected.splice(this.state.intrestSelected.indexOf(val), 1);
+            this.setState({
+                intrestSelected: this.state.intrestSelected
+            })
         }
     }
     render() {

@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 
 const ViewProfile = observer(props => {
     const { viewProfile } = props;
+    console.log(viewProfile, "viewProfile....");
     return (
         <div className="alignCenter">
             <div className="paddingTop">
@@ -19,7 +20,9 @@ const ViewProfile = observer(props => {
                         </section>
                         <section>
                             <div className="aboutButton">
-                                <a href="#" target="_blank" class="btn-purple" sytle={{}}><i className="fa fa-chrome facon"></i>Visit my website</a>
+                                <a href="viewProfile.val.url" target="_blank" className="btn-purple"><i
+                                    className={`${viewProfile.val.icon} 'facon'}`}
+                                ></i>{viewProfile.val.title}</a>
                             </div>
                         </section>
                         <section>
@@ -34,7 +37,7 @@ const ViewProfile = observer(props => {
                             <div className="Edu_Exp">
                                 <div className="work">
                                     <h4>Work Experience</h4>
-                                    <ul class="work_ul">
+                                    <ul className="work_ul">
                                         <li> Home</li>
                                         <li>Menu 1</li>
                                         <li>Menu 2</li>
@@ -43,7 +46,7 @@ const ViewProfile = observer(props => {
                                 </div>
                                 <div className="work">
                                     <h4>Education</h4>
-                                    <ul class="exp_ul">
+                                    <ul className="exp_ul">
                                         <li> Home</li>
                                         <li>Menu 1</li>
                                         <li>Menu 2</li>
@@ -54,12 +57,12 @@ const ViewProfile = observer(props => {
                         </section>
                         <section>
                             <div className="socialIcons">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item "><a href="#"><i class=" fa fa-facebook" title="visit my facebook profile"></i></a></li>
-                                    <li class="list-inline-item "><a href="#"><i class=" fa fa-twitter"></i></a></li>
-                                    <li class="list-inline-item "><a href="#"><i class=" fa fa-telegram"></i></a></li>
-                                    <li class="list-inline-item "><a href="#"><i class=" fa fa-youtube-play"></i></a></li>
-                                    <li class="list-inline-item "><a href="#"><i class=" fa fa-slack"></i></a></li>
+                                <ul className="list-inline">
+                                    <li className="list-inline-item "><a href="#"><i className=" fa fa-facebook" title="visit my facebook profile"></i></a></li>
+                                    <li className="list-inline-item "><a href="#"><i className=" fa fa-twitter"></i></a></li>
+                                    <li className="list-inline-item "><a href="#"><i className=" fa fa-telegram"></i></a></li>
+                                    <li className="list-inline-item "><a href="#"><i className=" fa fa-youtube-play"></i></a></li>
+                                    <li className="list-inline-item "><a href="#"><i className=" fa fa-slack"></i></a></li>
                                 </ul>
                             </div>
                         </section>
