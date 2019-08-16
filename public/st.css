@@ -1,6 +1,9 @@
 *{
     box-sizing: border-box;
 }
+.modal-backdrop.show {
+    opacity: .05 !important ;
+}
 .header {
     background:#0a0525;
     position: absolute;
