@@ -34,12 +34,12 @@ class Progress extends Component {
             case "/edit/link":
                 returnVal = 5
                 break;
-            case "/edit/design":
-                returnVal = 6
-                break;
-            case "/edit/color":
-                returnVal = 6
-                break;
+            // case "/edit/design":
+            //     returnVal = 6
+            //     break;
+            // case "/edit/color":
+            //     returnVal = 6
+            //     break;
             case "/edit/domain":
                 returnVal = 7
                 break;
@@ -52,7 +52,6 @@ class Progress extends Component {
         const pathkey = this.getPathname(window.location.pathname);
         return (
             <div style={{ "marginTop": "5%", "paddingBottom": "5%" }}>
-
                 <Container fluid={true} >
                     <Row>
                         <Col md={2} className="d-none d-sm-block"></Col>
@@ -65,16 +64,14 @@ class Progress extends Component {
                                     <li className={pathkey >= 3 ? "active" : ""}>Intrests</li>
                                     <li className={pathkey >= 4 ? "active" : ""}>Hobby</li>
                                     <li className={pathkey >= 5 ? "active" : ""}>About</li>
-                                    <li className={pathkey >= 6 ? "active" : ""}>Design</li>
+                                    {/* <li className={pathkey >= 6 ? "active" : ""}>Design</li> */}
                                     <li className={pathkey >= 7 ? "active" : ""}>Domain</li>
                                 </ul>
-
                             </div>
                         </Col>
                         <Col md={2} className="d-none d-sm-block"></Col>
                     </Row>
                 </Container>
-
             </div>
         )
     }

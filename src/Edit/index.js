@@ -9,8 +9,8 @@ import Intrest from "./Intrest";
 import Hobby from "./Hobby";
 import About from './About';
 import Link from "./Link";
-import Design from "./Design";
-import Color from "./Color";
+// import Design from "./Design";
+// import Color from "./Color";
 import "./edit.css"
 import Domain from "./Domain";
 import { Test } from "./Test"
@@ -85,23 +85,19 @@ class Edit extends Component {
                         path="/edit/Link"
                         component={props => <Link {...props} setAboutDetails={this.state.aboutDetails} />}
                     />
+                    {/* <Route
+                        path="/edit/Design"
+                        component={props => <Design {...props} getColorDetails={this.getColorDetails} />}
+                    /> 
                     <Route
                         path="/edit/Design"
                         component={props => <Design {...props} getColorDetails={this.getColorDetails} />}
-                    />
-                    <Route
-                        path="/edit/Color"
-                        component={props => <Color {...props} setColorDetails={this.state.getColorDetails} />}
-                    />
+                    />*/}
                     <Route
                         path="/edit/Domain"
                         component={props => <Domain {...props} />}
                     />
                 </Switch>
-
-
-                <Button onClick={() => { this.props.history.push("/edit/bio"); }}>REVIEW NEXT SCREEN </Button>
-
             </div>
         )
     }

@@ -1,67 +1,55 @@
-import React, { Component } from "react";
-import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
-class Design extends Component {
-    constructor() {
-        super();
-        this.state = {
-            seleted: "",
-            cards: [
-                {
-                    id: 0,
-                    src: "https://dummyimage.com/640x4:3",
-                    alt: "Card cap"
-                },
-                {
-                    id: 1,
-                    src: "https://dummyimage.com/640x4:3",
-                    alt: "Card cap"
-                }
-            ],
-            objcolor: {
-                id: "",
-                src: "",
-                alt: ""
-            }
-        }
-    }
-    handleClick = (id, src, alt) => {
-        this.setState({
-            seleted: id,
+// import React, { Component } from "react";
+// import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
+// import IroColorPicker from "./IroColorPicker"
+// class Design extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             color: "#47d7ff"
+//         }
+//     }
+//     handleClick = (id) => {
+//         this.setState({
+//             seleted: id
+//         })
+//     }
+//     onColorChange = (color) => {
+//         this.setState({
+//             color: color.hexString
+//         })
+//     };
+//     render() {
+//         //console.log(this.state.color)
 
-        })
-        this.props.getColorDetails(id, src, alt);
-    }
-    render() {
-        return (
-            <Container fluid={true} >
-                <Row>
-                    <Col md={2} xs={1}></Col>
-                    <Col md={8} xs={10}>
-                        <div className="text-center">
-                            <i className="faFontLarge fa fa-paint-brush"></i>
-                        </div>
-                        <div className="text-center">
-                            <h1>Choose your layout</h1>
-                        </div>
-                        <Row>
-                            <div className="layout">
-                                {this.state.cards.map((item, index) => {
-                                    return (
-                                        <div onClick={(e) => this.handleClick(item.id, item.src, item.alt)} className={(this.state.seleted === item.id) ? "activeCards" : "cards"} key={index} >
-                                            <img className=" " src={item.src} alt={item.alt} />
-                                        </div>
-                                    )
-                                })}
+//         return (
+//             <Container fluid={true} >
+//                 <Row>
+//                     <Col md={2} xs={1}></Col>
+//                     <Col md={8} xs={10}>
+//                         <div className="text-center">
+//                             <i className="faFontLarge fa fa-paint-brush"></i>
+//                         </div>
 
-                            </div>
-                        </Row>
-                        <p />
-                        <Button onClick={() => this.props.history.push("/edit/color")}>Submit</Button>
-                    </Col>
-                    <Col md={2} xs={1}></Col>
-                </Row>
-            </Container>
-        )
-    }
-}
-export default Design;
+//                         <div className="text-center">
+//                             <h1 style={{ color: `${this.state.color}` }} > Customize color for this layout</h1>
+//                             <div className="colorPicker">
+//                                 <IroColorPicker width="210" color={this.state.color} onColorChange={this.onColorChange} />
+//                             </div>
+//                         </div>
+//                         <Row>
+//                             <div className="layout">
+//                                 <div className="cards" >
+//                                     <img className="" src={this.props.setColorDetails.src} alt={this.props.setColorDetails.alt} />
+//                                 </div>
+//                             </div>
+//                         </Row>
+//                         <p />
+//                         <Button onClick={() => this.props.history.push("/edit/domain")}>Submit</Button>
+//                     </Col>
+//                     <Col md={2} xs={1}></Col>
+//                 </Row>
+//             </Container >
+//         )
+//     }
+// }
+// export default Design;
