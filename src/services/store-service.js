@@ -1,5 +1,5 @@
 import { observable, action, decorate } from "mobx";
-import { observer } from "mobx-react";
+import HTTPService from "./http-service";
 
 /** All the View and Edit Profile Observables are handled in this Store */
 class AppProfileStore {
@@ -13,6 +13,24 @@ class AppProfileStore {
     design = "";
     socialprofile = [];
     pic = "";
+
+    constructor(profileApi) {
+        this.profileApi = profileApi;
+    }
+
+    fetchUserInfo(username) {
+        this.profileApi.fetchUserInfo(username).then((res) => {
+            const { bio, about, spotlight, education, work, design, socialprofile, pic } = res;
+            this.bio = bio;
+            this.about = about;
+            this.spotlight = spotlight;
+            this.education = education;
+            this.work = work;
+            this.design = design;
+            this.socialprofile = socialprofile;
+            this.pic = pic;
+        });
+    }
 
     /******Mention the actions to update observables here******/
     /** To Set about observable value */
@@ -80,5 +98,5 @@ decorate(AppProfileStore, {
     setSocialProfileValue: action,
     setPic: action
 });
-
-export const profileStore = new AppProfileStore();
+const httpService = new HTTPService();
+export const profileStore = new AppProfileStore(httpService);

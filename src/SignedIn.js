@@ -62,7 +62,7 @@ class SignedIn extends Component {
 
         <Switch>
           <Route path="/edit/" component={Edit} />
-          <Route path={`/${username}`} component={Profile} />
+          <Route path={`/${username}`} component={() => <Profile username={usernamefull} />} />
         </Switch>
 
       </div>
