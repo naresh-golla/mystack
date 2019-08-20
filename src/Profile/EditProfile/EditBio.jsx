@@ -2,12 +2,15 @@ import React from 'react';
 import { observer } from "mobx-react";
 import { Accordion, Card, Form, FormGroup, Button, ButtonToolbar } from 'react-bootstrap';
 import { Label, Input } from "reactstrap";
+import { get } from "lodash";
 
 const EditBio = observer((props) => {
     let firstNameInput = React.createRef(),
         lastNameInput = React.createRef(),
         designationInput = React.createRef(),
         locationInput = React.createRef();
+
+    const { bio } = props.editProfile;
 
     const bioClickHandler = (e, isCancel = false) => {
         e.preventDefault();
@@ -36,19 +39,19 @@ const EditBio = observer((props) => {
                     <Form>
                         <FormGroup>
                             <Label htmlFor="firstName">First Name</Label>
-                            <Input innerRef={el => firstNameInput = el} />
+                            <Input innerRef={el => firstNameInput = el} defaultValue={get(bio, "firstName", "")} />
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="lastName">Last Name</Label>
-                            <Input innerRef={el => lastNameInput = el} />
+                            <Input innerRef={el => lastNameInput = el} defaultValue={get(bio, "lastName", "")} />
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="designation">Designation</Label>
-                            <Input innerRef={el => designationInput = el} />
+                            <Input innerRef={el => designationInput = el} defaultValue={get(bio, "designation", "")} />
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="location">Location</Label>
-                            <Input innerRef={el => locationInput = el} />
+                            <Input innerRef={el => locationInput = el} defaultValue={get(bio, "location", "")} />
                         </FormGroup>
                         <div className="cancelSave">
                             <ButtonToolbar>

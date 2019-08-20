@@ -58,7 +58,7 @@ class SignedIn extends Component {
     const username = usernamefull.split(".")[0]
     return (
       <div className="SignedIn" >
-        <NavBar username={username} signOut={this.signOut} />
+        <NavBar username={username} user={usernamefull} signOut={this.signOut} />
 
         <Switch>
           <Route path="/edit/" component={Edit} />

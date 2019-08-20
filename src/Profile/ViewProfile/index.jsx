@@ -30,7 +30,7 @@ class ViewProfile extends React.Component {
                             </header>
                             <div className="heading">
                                 <section>
-                                    <h1>{get(bio, "firstName", "")}</h1>
+                                    <h1>{get(bio, "firstName", "")} {get(bio, "lastName", "")}</h1>
                                 </section>
                                 <section>
                                     <h2>{get(bio, "designation", "")} in {get(bio, "location", "")}</h2>
