@@ -6,6 +6,8 @@ const EditAbout = observer((props) => {
     //text area ref
     let aboutInput = React.createRef();
 
+    const { about } = props.editProfile;
+
     //Save and Cancel click handlers
     const aboutClickHandler = (e, isCancel = false) => {
         e.preventDefault();
@@ -25,7 +27,7 @@ const EditAbout = observer((props) => {
                 <Card.Body className="card-body">
                     <p><b>Edit About</b></p>
                     <div className="bioEdit">
-                        <textarea ref={el => aboutInput = el} name="name" cols="48" rows="15" style={{ "resize": "none" }}></textarea>
+                        <textarea ref={el => aboutInput = el} name="name" defaultValue={about} cols="48" rows="15" style={{ "resize": "none" }}></textarea>
                     </div>
                     <div className="cancelSave">
                         <ButtonToolbar>

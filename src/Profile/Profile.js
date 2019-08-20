@@ -9,7 +9,7 @@ class Profile extends Component {
     }
     render() {
         return (
-            <ViewProfile viewProfile={profileStore} />
+            <ViewProfile viewProfile={profileStore} username={this.props.username} />
         )
     }
 }

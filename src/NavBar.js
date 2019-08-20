@@ -21,7 +21,7 @@ class NavBar extends Component {
   }
 
   render() {
-    const username = this.props.username
+    const { username } = this.props
     const pathName = window.location.pathname;
     return (
       <React.Fragment>
