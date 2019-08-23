@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './NavBar.css'
+import './css/NavBar.css'
 import EditProfile from './Profile/EditProfile';
 import { includes } from 'lodash';
 

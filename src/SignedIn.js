@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Switch, Route, Redirect, Router } from 'react-router-dom'
 import { UserSession } from 'blockstack'
 import NavBar from './NavBar'
-import { appConfig, ME_FILENAME } from './constants'
+import { appConfig, ME_FILENAME } from './constants/constants'
 import Edit from "./Edit";
 // import Bio from "./Edit/Bio";
-import './SignedIn.css'
+import './css/SignedIn.css'
 import Profile from './Profile/Profile';
 
 
