@@ -11,7 +11,7 @@ class Bio extends Component {
     }
     nextChange = e => {
         this.setState({}, () => {
-            this.props.history.push("/edit/pic");
+            //this.props.history.push("/edit/pic");
         });
     };
     render() {
@@ -42,12 +42,13 @@ class Bio extends Component {
                                 email: ""
                             }}
                             validationSchema={SignupSchema}
-                            onSubmit={fields => {
+                            onSubmit={fields => {                                
                                 this.props.createProfile.setBio({
                                     ...fields,
                                     designation: "",
                                     location: ""
                                 });
+                                this.props.history.push("/edit/pic")
                             }}
                             render={({ errors, status, touched }) => (
                                 <Form>
@@ -108,7 +109,7 @@ class Bio extends Component {
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-primary mr-2">
                                             Submit
-                    </button>
+                                        </button>
                                     </div>
                                 </Form>
                             )}

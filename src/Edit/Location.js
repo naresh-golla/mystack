@@ -68,6 +68,7 @@ class Location extends Component {
                                         ...this.props.createProfile.bio,
                                         location: fields.city
                                     });
+                                    this.props.history.push("/edit/intrest")
                                 }}
                                 render={({ errors, status, touched }) => (
                                     <Form>

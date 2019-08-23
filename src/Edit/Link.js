@@ -34,7 +34,9 @@ class Link extends Component {
                             validationSchema={LinkSchema}
                             onSubmit={fields => {
                                 console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
-                            }}
+                                this.props.history.push("/edit/domain")
+                            } 
+                            }
                             render={({ errors, status, touched }) => (
                                 <Form>
                                     <div className="form-group">
@@ -47,7 +49,6 @@ class Link extends Component {
                                     </div>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-primary mr-2">Submit</button>
-                                        <Button onClick={() => this.props.history.push("/edit/design")}>Submit</Button>
                                     </div>
                                 </Form>
                             )}
