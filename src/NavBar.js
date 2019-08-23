@@ -26,7 +26,7 @@ class NavBar extends Component {
     return (
       <React.Fragment>
         <nav className="navbar navbar-expand-md navbar-dark bg-blue fixed-top">
-          <Link className="navbar-brand" to="/">MyStack</Link>
+          <span className="navbar-brand" >MyStack</span>
           <ul className="navbar-nav mr-auto">
             {/* <li className="nav-item">
             <Link className="nav-link" to={`/${username}`}>{username}</Link>

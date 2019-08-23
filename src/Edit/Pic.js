@@ -3,6 +3,7 @@ import { Formik, Field } from "formik"
 import FileUpload from "./FileUpload"
 import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
 import Avatar from 'react-avatar-edit'
+import { observer } from "mobx-react";
 class Pic extends Component {
     constructor(props) {
         super(props)
@@ -18,6 +19,7 @@ class Pic extends Component {
     }
 
     onCrop = (preview) => {
+        this.props.createProfile.setPic(preview);
         this.setState({ preview })
     }
 
@@ -26,6 +28,10 @@ class Pic extends Component {
             alert("File is too big!");
             elem.target.value = "";
         };
+    }
+
+    submitHandler = () => {
+        this.props.history.push("/edit/location")
     }
     render() {
         return (
@@ -59,7 +65,7 @@ class Pic extends Component {
                             </div>
                         </Row>
                         <Row>
-                            <Button onClick={() => this.props.history.push("/edit/location")} className="btn btn-outline-primary">Submit</Button>
+                            <Button onClick={() => this.submitHandler()} className="btn btn-outline-primary">Submit</Button>
                         </Row>
                     </Col>
                 </Row>
@@ -68,4 +74,4 @@ class Pic extends Component {
     }
 }
 
-export default Pic;
+export default observer(Pic);

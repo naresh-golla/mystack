@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { customInputForm } from "./customInputForm";
+import { observer } from "mobx-react";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { Container, Row, Col } from "react-bootstrap";
 import { Label } from "reactstrap";
@@ -43,9 +43,11 @@ class Bio extends Component {
                             }}
                             validationSchema={SignupSchema}
                             onSubmit={fields => {
-                                console.log(
-                                    "SUCCESS!! :-)\n\n" + JSON.stringify(fields, null, 4)
-                                );
+                                this.props.createProfile.setBio({
+                                    ...fields,
+                                    designation: "",
+                                    location: ""
+                                });
                             }}
                             render={({ errors, status, touched }) => (
                                 <Form>
@@ -118,4 +120,4 @@ class Bio extends Component {
         );
     }
 }
-export default Bio;
+export default observer(Bio);

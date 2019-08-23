@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { createProfile } from "../services/create-service";
 import Progress from "./Progress";
-import { Switch, Route, Redirect, Router } from 'react-router-dom';
-import { Button } from "reactstrap"
 import Bio from "./Bio";
 import Pic from "./Pic";
 import Location from "./Location";
@@ -9,11 +9,9 @@ import Intrest from "./Intrest";
 import Hobby from "./Hobby";
 import About from './About';
 import Link from "./Link";
-// import Design from "./Design";
-// import Color from "./Color";
 import "./edit.css"
 import Domain from "./Domain";
-import { Test } from "./Test"
+
 class Edit extends Component {
     constructor() {
         super();
@@ -59,31 +57,31 @@ class Edit extends Component {
                 <Switch>
                     <Route
                         exact path="/edit/Bio"
-                        component={props => <Bio {...props} />}
+                        component={props => <Bio createProfile={createProfile} {...props} />}
                     />
                     <Route exact
                         path="/edit/Pic"
-                        component={Pic}
+                        component={props => <Pic createProfile={createProfile} {...props} />}
                     />
                     <Route exact
                         path="/edit/Location"
-                        component={Location}
+                        component={props => <Location createProfile={createProfile} {...props} />}
                     />
                     <Route exact
                         path="/edit/Intrest"
-                        component={Intrest}
+                        component={props => <Intrest createProfile={createProfile} {...props} />}
                     />
                     <Route
                         path="/edit/Hobby"
-                        component={props => <Hobby {...props} />}
+                        component={props => <Hobby createProfile={createProfile} {...props} />}
                     />
                     <Route
                         path="/edit/About"
-                        component={props => <About {...props} getAboutDetails={this.getAboutDetails} />}
+                        component={props => <About createProfile={createProfile} {...props} getAboutDetails={this.getAboutDetails} />}
                     />
                     <Route
                         path="/edit/Link"
-                        component={props => <Link {...props} setAboutDetails={this.state.aboutDetails} />}
+                        component={props => <Link createProfile={createProfile} {...props} setAboutDetails={this.state.aboutDetails} />}
                     />
                     {/* <Route
                         path="/edit/Design"
@@ -95,7 +93,7 @@ class Edit extends Component {
                     />*/}
                     <Route
                         path="/edit/Domain"
-                        component={props => <Domain {...props} />}
+                        component={props => <Domain createProfile={createProfile} {...props} />}
                     />
                 </Switch>
             </div>

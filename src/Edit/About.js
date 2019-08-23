@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import {observer} from 'mobx-react';
 class About extends Component {
     constructor(props) {
         super(props);
@@ -27,6 +28,7 @@ class About extends Component {
     }
     handleClick = (item) => {
         // console.log(item)
+        this.props.createProfile.setSpotlightValue(item);
         this.setState({
             activeDiv: item.id,
             activeItem: item
@@ -77,4 +79,4 @@ class About extends Component {
         )
     }
 }
-export default About;
+export default observer(About);

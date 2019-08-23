@@ -5,6 +5,7 @@ import { Container, Row, Col, FormGroup, Button } from 'react-bootstrap';
 import { Label, Input } from "reactstrap";
 import * as Yup from "yup";
 import Script from "react-load-script";
+import { observer } from "mobx-react";
 class Location extends Component {
     constructor(props) {
         super(props);
@@ -63,7 +64,10 @@ class Location extends Component {
                                 }}
                                 validationSchema={LocationSchema}
                                 onSubmit={fields => {
-                                    console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+                                    this.props.createProfile.setBio({
+                                        ...this.props.createProfile.bio,
+                                        location: fields.city
+                                    });
                                 }}
                                 render={({ errors, status, touched }) => (
                                     <Form>
@@ -90,4 +94,4 @@ class Location extends Component {
         )
     }
 }
-export default Location;
+export default observer(Location);
