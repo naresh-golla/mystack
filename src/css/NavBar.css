@@ -1,0 +1,14 @@
+.navbar {
+  background-color:  rgb(33, 31, 109) !important;
+}
+nav button{
+  all: unset;
+}
+nav button a{
+  color: white;
+}
+.editModal {
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { customInputForm } from "./customInputForm";
 import { Formik, Field, ErrorMessage, Form } from "formik"
 import { Container, Row, Col, FormGroup, Button } from 'react-bootstrap';
-import { Label, } from "reactstrap";
+import { Label,} from "reactstrap";
 import * as Yup from "yup";
 import { customInputDomain } from "./customInputDomain";
 import { FormFeedback, Input } from "reactstrap"
@@ -15,9 +15,9 @@ class Domain extends Component {
         }
     }
     changedValue = (e) => {
-        // this.setState({
-        //     customdomain: e.target.value
-        // })
+        this.setState({
+            customdomain: e.target.value
+        })
         console.log(e.target)
     }
     render() {
@@ -40,10 +40,10 @@ class Domain extends Component {
                             <p>&nbsp;</p>
                         </div>
                         <div className="text-center" style={{ "paddingTop": "5%" }}>
-                            <h2 className="text-info">https://mystack.com/{this.state.customdomain}</h2>
+                            <h2 className="text-info">https://mystack.id/{this.state.customdomain}</h2>
                         </div>
                         <div style={{ "paddingTop": "5%" }}>
-                            <Formik
+                            {/* <Formik
                                 initialValues={{
                                     domain: '',
                                 }}
@@ -66,7 +66,18 @@ class Domain extends Component {
                                         </div>
                                     </Form>
                                 )}
-                            />
+                            /> */}
+                             <div className="form-group">
+                                            <Label htmlFor="domain">Enter name for your customised link </Label>
+                                            <Input name="domain" type="text"
+                                                placeholder="Enter your domain"
+                                                onChange={(e)=>this.changedValue(e)}
+                                                className={'form-control'} />
+                                            <ErrorMessage name="domain" component="div" className="invalid-feedback" />
+                                        </div>
+                                        <div className="form-group">
+                                            <button type="submit" className="btn btn-primary mr-2">Submit</button>
+                                        </div>
                         </div>
                     </Col>
                     <Col md={3} xs={1}></Col>
