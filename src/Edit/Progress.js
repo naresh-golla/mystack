@@ -51,7 +51,7 @@ class Progress extends Component {
     render() {
         const pathkey = this.getPathname(window.location.pathname);
         return (
-            <div style={{ "marginTop": "5%", "paddingBottom": "5%" }}>
+            <div style={{ "marginTop": "5%", "paddingBottom": "2%" }}>
                 <Container fluid={true} >
                     <Row>
                         <Col md={2} className="d-none d-sm-block"></Col>

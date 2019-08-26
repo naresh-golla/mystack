@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { UserSession } from 'blockstack'
 import { appConfig } from './utils/constants'
 import './css/Landing.css'
-import globe from "./space_white.svg";
+import globe from "./images/space_white.svg";
 class Landing extends Component {
 
   constructor() {
@@ -18,17 +18,17 @@ class Landing extends Component {
   render() {
     return (
       <div className="wrapper">
-        <div className="header" style={{ "display": "flex", "justifyContent": "space-between", "paddingTop": "3%" }}>
+        <div className="header" style={{ "display": "flex", "justifyContent": "space-between", "paddingTop": "3%","paddingRight":"5%" }}>
           <div style={{ "paddingLeft": "10%" }}>
 
             <h1>MyStack
               </h1>
           </div>
-          <div className="sub-menu" style={{ "display": "flex", "paddingRight": "20%" }}>
+          <div className="sub-menu" style={{ "display": "flex" }}>
             <div id="menu-item-45"
               className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-21 current_page_item menu-item-45">
               <a id="login_btn" onClick={this.signIn.bind(this)} style={{ "cursor": "pointer" }}>
-                <p id="login" style={{ "color": "white", "padding": "7px 12px", "borderRadius": "6px", "marginRight": "10px" }}>
+                <p id="login" style={{ "color": "white", "borderRadius": "6px", "marginRight": "10px" }}>
                   <strong style={{ "padding": "9px 16px", "border": "1px solid #fff", "borderRadius": "6px" }}>Login</strong>
                 </p>
               </a>
@@ -39,17 +39,17 @@ class Landing extends Component {
               "justifyContent": "center"
             }}>
               <a id="discover_btn" style={{ "cursor": "pointer" }}>
-                <p id="discover" style={{ "color": "white", "border": "1px solid #fff", "padding": "6px 12px", "borderRadius": "6px" }}>
+                <span id="discover" style={{ "color": "white", "border": "1px solid #fff", "padding": "9px 12px", "borderRadius": "6px" }}>
                   <img src={globe} style={{ "width": "20px", "marginRight": "6px" }} />
                   <strong style={{ "borderRadius": "6px" }}>Discover</strong>
-                </p>
+                </span>
               </a>
             </div>
           </div>
         </div >
 
 
-        <section className="section-banner section-banner--variant2">
+        <section className="section-banner section-banner--variant2" style={{"height" : "100vh"}}>
           <div className="nav__dd nav__dd-static visible-xs-block">
             <span>
 

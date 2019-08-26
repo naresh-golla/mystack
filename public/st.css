@@ -75,7 +75,7 @@
 }
 .section-banner .section__content {
     padding: 250px 0 108px;
-    width: 51%;
+    width: 70%;
 }
 .section-banner h1 {
     margin-bottom: 27px;
@@ -85,7 +85,7 @@
     line-height: 1.4em;
 }
 .section-banner .section__content .btn-purple {
-    min-width: 480px;
+    min-width: 410px;
 }
 .btn-purple {
     text-decoration: none;

@@ -1,7 +1,12 @@
 .navbar {
   background-color:  rgb(33, 31, 109) !important;
 }
-
+button{
+  all: unset;
+}
+button a{
+  color:white;
+}
 .editModal {
   position: fixed;
   height: 100%;
