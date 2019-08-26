@@ -20,6 +20,14 @@ class HTTPService {
         return Axios.put(endpoint + method + param, data);
     }
 
+    createUser(params) {
+        const endpoint = httpConstants.ENDPOINT;
+        const method = httpConstants.CREATE_USER;
+        const data = {
+            ...params
+        }
+        return Axios.post(endpoint + method, data);
+    }
 }
 
 export default HTTPService;

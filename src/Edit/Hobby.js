@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {observer} from 'mobx-react';
 import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
 import { Label, Input } from "reactstrap";
 import * as Yup from "yup";
@@ -126,6 +127,10 @@ class Hobby extends Component {
             // })
         }
     }
+    submitHobby = () => {
+        this.props.createProfile.setHobby(...this.state.hobbyintrestSelected);
+        this.props.history.push("/edit/about")
+    }
     render() {
         console.log(this.state.hobbyintrestSelected);
 
@@ -163,7 +168,7 @@ class Hobby extends Component {
                         {this.state.hobbyintrestSelected.length === 0 ? <p className="errormsg">Selection is required</p> : ""}
                         {(this.state.hobbyintrestSelected.length > 3) ? <p className="errormsg">Too many selections, you can select maximum 3 selections</p> : ""}
 
-                        <Button onClick={() => this.props.history.push("/edit/about")}>Submit</Button>
+                        <Button onClick={() => this.submitHobby()}>Submit</Button>
 
                     </Col>
                     <Col md={3} xs={1}></Col>
@@ -172,4 +177,4 @@ class Hobby extends Component {
         )
     }
 }
-export default Hobby;
+export default observer(Hobby);

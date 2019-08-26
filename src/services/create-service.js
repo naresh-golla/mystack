@@ -17,6 +17,9 @@ class CreateProfileStore {
     socialprofile = [];
     pic = "";
     interests = [];
+    hobby = [];
+    domain = "";
+    error = "";
 
     constructor(profileApi) {
         this.profileApi = profileApi;
@@ -75,28 +78,82 @@ class CreateProfileStore {
     setPic(data) {
         this.pic = data
     }
+
+    setInterests(data) {
+        this.interests.push(data);
+    }
+
+    setHobby(data) {
+        this.hobby.push(data);
+    }
+
+    setDomain(data) {
+        this.domain = data;
+    }
+
+    createUser() {
+        const params = {
+            username: this.username,
+            bio: this.bio,
+            about: this.about,
+            spotlight: this.spotlight,
+            education: this.education,
+            work: this.work,
+            design: this.design,
+            socialprofile: this.socialprofile,
+            pic: this.pic,
+            interests: this.interests,
+            hobby: this.hobby,
+            domain: this.domain
+        };
+        this.profileApi.createUser(params).then((response) => {
+            this.error = "";
+        }).catch(error => { this.error = "Create User Failed" });
+    }
+
 }
 
 /**Define the observable, action, computed variables inside the decorate */
 decorate(CreateProfileStore, {
+    /**Username */
     username: observable,
-    bio: observable,
-    about: observable,
-    spotlight: observable,
-    education: observable,
-    work: observable,
-    design: observable,
-    socialprofile: observable,
-    pic: observable,
     setUserName: action,
+    /**Bio */
+    bio: observable,
     setBio: action,
+    /**About */
+    about: observable,
     setAboutValue: action,
+    /**SpotLight */
+    spotlight: observable,
     setSpotlightValue: action,
+    /**Education */
+    education: observable,
     setEducation: action,
+    /**Work */
+    work: observable,
     setWork: action,
+    /**Design */
+    design: observable,
     setDesignValue: action,
+    /**Social Profile */
+    socialprofile: observable,
     setSocialProfileValue: action,
-    setPic: action
+    /**Pic */
+    pic: observable,
+    setPic: action,
+    /**Interests */
+    interests: observable,
+    setInterests: action,
+    /**Hobby */
+    hobby: observable,
+    setHobby: action,
+    /**Domain */
+    domain: observable,
+    setDomain: action,
+    /**Error */
+    error: observable,
+
 });
 const httpService = new HTTPService();
 export const createProfile = new CreateProfileStore(httpService);
