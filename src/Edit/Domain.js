@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { observer } from 'mobx-react';
 import { customInputForm } from "./customInputForm";
 import { Formik, Field, ErrorMessage, Form } from "formik"
 import { Container, Row, Col, FormGroup, Button } from 'react-bootstrap';
@@ -15,10 +16,14 @@ class Domain extends Component {
         }
     }
     changedValue = (e) => {
+        this.props.createProfile.setDomain(this.state.customdomain);
         this.setState({
             customdomain: e.target.value
         })
         console.log(e.target)
+    }
+    submitHandler = (e) => {        
+        this.props.createProfile.createUser();
     }
     render() {
         const DomainSchema = Yup.object().shape({
@@ -76,7 +81,7 @@ class Domain extends Component {
                                             <ErrorMessage name="domain" component="div" className="invalid-feedback" />
                                         </div>
                                         <div className="form-group">
-                                            <button type="submit" className="btn btn-primary mr-2">Submit</button>
+                                            <button type="submit" onClick={this.submitHandler} className="btn btn-primary mr-2">Submit</button>
                                         </div>
                         </div>
                     </Col>
@@ -86,4 +91,4 @@ class Domain extends Component {
         )
     }
 }
-export default Domain;
+export default observer(Domain);

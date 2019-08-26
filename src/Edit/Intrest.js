@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { observer } from "mobx-react";
 import { Container, Row, Col, Form, FormGroup, Button } from 'react-bootstrap';
 import { Label, Input } from "reactstrap";
 import * as Yup from "yup";
@@ -80,6 +81,11 @@ class Intrest extends Component {
             })
         }
     }
+
+    submitInterests = () => {
+        this.props.createProfile.setInterests(...this.state.intrestSelected)
+        this.props.history.push("/edit/hobby")
+    }
     render() {
         console.log(this.state.intrestSelected);
         return (
@@ -116,7 +122,7 @@ class Intrest extends Component {
                         {this.state.intrestSelected.length === 0 ? <p className="errormsg">selection is required</p> : ""}
                         {(this.state.intrestSelected.length <= 2 && this.state.intrestSelected.length > 0) ? <p className="errormsg">Mininum 3 selections is required</p> : ""}
                         {this.state.intrestSelected.length > 5 ? <p className="errormsg">Maximum 5 selections only</p> : ""}
-                        <Button onClick={() => this.props.history.push("/edit/hobby")}>Submit</Button>
+                        <Button onClick={() => this.submitInterests()}>Submit</Button>
 
                     </Col>
                     <Col md={3} xs={1}></Col>
@@ -125,4 +131,4 @@ class Intrest extends Component {
         )
     }
 }
-export default Intrest;
+export default observer(Intrest);

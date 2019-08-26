@@ -61,7 +61,7 @@ class SignedIn extends Component {
         <NavBar username={username} user={usernamefull} signOut={this.signOut} />
 
         <Switch>
-          <Route path="/edit/" component={Edit} />
+          <Route path="/edit/" component={(props) => <Edit username={usernamefull} {...props} />} />
           <Route path={`/${username}`} component={() => <Profile username={usernamefull} />} />
         </Switch>
 

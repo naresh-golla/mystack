@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { observer } from 'mobx-react';
 import { customInputForm } from "./customInputForm";
 import { Formik, Field, ErrorMessage, Form } from "formik"
 import { Container, Row, Col, FormGroup, Button } from 'react-bootstrap';
@@ -34,6 +35,10 @@ class Link extends Component {
                             validationSchema={LinkSchema}
                             onSubmit={fields => {
                                 console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+                                this.props.createProfile.setSpotlightValue({ 
+                                    ...this.props.createProfile.spotlight,
+                                    url: fields.link
+                                });
                                 this.props.history.push("/edit/domain")
                             } 
                             }
@@ -60,4 +65,4 @@ class Link extends Component {
         )
     }
 }
-export default Link;
+export default observer(Link);

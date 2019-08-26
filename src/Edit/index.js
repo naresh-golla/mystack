@@ -57,7 +57,7 @@ class Edit extends Component {
                 <Switch>
                     <Route
                         exact path="/edit/Bio"
-                        component={props => <Bio createProfile={createProfile} {...props} />}
+                        component={props => <Bio createProfile={createProfile} {...props} username={this.props.username} />}
                     />
                     <Route exact
                         path="/edit/Pic"

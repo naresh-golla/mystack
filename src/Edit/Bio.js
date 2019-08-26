@@ -9,6 +9,9 @@ class Bio extends Component {
         super();
         this.state = {};
     }
+    componentDidMount() {
+        this.props.createProfile.setUserName(this.props.username);
+    }
     nextChange = e => {
         this.setState({}, () => {
             //this.props.history.push("/edit/pic");
