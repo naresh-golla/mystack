@@ -1,4 +1,4 @@
-/* 
+
 img.wp-smiley,
 img.emoji {
     display: inline !important;
@@ -232,14 +232,4 @@ body.page-template-service .header .shell:before {
     .hide-on-mobile {
         display: none;
     }
-} */
-body{
-    padding-top: 0px;
-}
-.landingContainer{
-    background: #0a0525;
-    color: white;
-    height: 100vh;
-    width: 100%;
-    overflow-x: hidden
 }

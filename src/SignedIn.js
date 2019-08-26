@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Route, Redirect, Router } from 'react-router-dom'
 import { UserSession } from 'blockstack'
 import NavBar from './NavBar'
-import { appConfig, ME_FILENAME } from './constants/constants'
+import { appConfig, ME_FILENAME } from './utils/constants'
 import Edit from "./Edit";
 // import Bio from "./Edit/Bio";
 import './css/SignedIn.css'

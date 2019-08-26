@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { UserSession } from 'blockstack'
-import { appConfig } from './constants/constants'
+import { appConfig } from './utils/constants'
 import './css/Landing.css'
-import globe from "./images/space_white.svg";
+import globe from "./space_white.svg";
 class Landing extends Component {
 
   constructor() {
