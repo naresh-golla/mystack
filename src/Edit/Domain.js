@@ -24,6 +24,8 @@ class Domain extends Component {
     }
     submitHandler = (e) => {        
         this.props.createProfile.createUser();
+        this.props.setDomain(this.state.customdomain);
+        this.props.history.push("/" + this.state.customdomain)
     }
     render() {
         const DomainSchema = Yup.object().shape({
@@ -77,7 +79,9 @@ class Domain extends Component {
                                             <Input name="domain" type="text"
                                                 placeholder="Enter your domain"
                                                 onChange={(e)=>this.changedValue(e)}
-                                                className={'form-control'} />
+                                                className={'form-control'} 
+
+                                                />
                                             <ErrorMessage name="domain" component="div" className="invalid-feedback" />
                                         </div>
                                         <div className="form-group">

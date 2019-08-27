@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './css/NavBar.css'
 import EditProfile from './Profile/EditProfile';
 import { includes } from 'lodash';
+import { observer } from "mobx-react";
 
 class NavBar extends Component {
 
@@ -19,7 +20,9 @@ class NavBar extends Component {
       show: !this.state.show
     })
   }
-
+componentDidMount(){
+  this.props.viewProfile.fetchUserInfo(this.props.user);
+}
   render() {
     const { username } = this.props
     const pathName = window.location.pathname;
@@ -29,7 +32,7 @@ class NavBar extends Component {
           <span className="navbar-brand" >MyStack</span>
           <ul className="navbar-nav mr-auto">
             {/* <li className="nav-item">
-            <Link className="nav-link" to={`/${username}`}>{username}</Link>
+            <Link className="nav-link" to={`/${this.props.viewProfile.domain}`}>{username}</Link>
           </li> */}
             {includes(pathName, `${username}`) && <button
               className="btn btn-primary"
@@ -38,7 +41,7 @@ class NavBar extends Component {
             </button>}
           </ul>
           <button>
-            <Link className="nav-link" to={`/${username}`}>{username}</Link>
+            <Link className="nav-link" to={`/${this.props.viewProfile.domain}`}>{username}</Link>
           </button>
           <button
             className="btn btn-primary"
@@ -54,4 +57,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default observer(NavBar);

@@ -16,6 +16,7 @@ class AppProfileStore {
     design = "";
     socialprofile = [];
     pic = "";
+    domain = "";
 
     constructor(profileApi) {
         this.profileApi = profileApi;
@@ -24,7 +25,7 @@ class AppProfileStore {
     fetchUserInfo(username) {
         this.username = username;
         this.profileApi.fetchUserInfo(username).then((res) => {
-            const { bio, about, spotlight, education, work, design, socialprofile, pic } = get(res, [JsonKeys.DATA], {});
+            const { bio, about, spotlight, education, work, design, socialprofile, pic ,domain} = get(res, [JsonKeys.DATA], {});
             this.bio = bio;
             this.about = about;
             this.spotlight = spotlight;
@@ -33,6 +34,7 @@ class AppProfileStore {
             this.design = design;
             this.socialprofile = socialprofile;
             this.pic = pic;
+            this.domain = domain;
         });
     }
 
@@ -121,6 +123,7 @@ decorate(AppProfileStore, {
     design: observable,
     socialprofile: observable,
     pic: observable,
+    domain: observable,
     setBio: action,
     setAboutValue: action,
     setSpotlightValue: action,

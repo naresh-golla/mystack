@@ -4,7 +4,6 @@ import { UserSession } from 'blockstack'
 
 import Landing from './Landing'
 import SignedIn from './SignedIn'
-
 class App extends Component {
 
   constructor() {
@@ -39,4 +38,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default App;

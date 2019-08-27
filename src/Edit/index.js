@@ -93,7 +93,11 @@ class Edit extends Component {
                     />*/}
                     <Route
                         path="/edit/Domain"
-                        component={props => <Domain createProfile={createProfile} {...props} />}
+                        component={props => <Domain 
+                                                    createProfile={createProfile} 
+                                                    {...props} 
+                                                    userid={this.props.userid}
+                                                    setDomain={(data) => this.props.setDomain(data)} />}
                     />
                 </Switch>
             </div>

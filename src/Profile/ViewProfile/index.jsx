@@ -44,7 +44,7 @@ class ViewProfile extends React.Component {
                                 </section>
                                 <section>
                                     <div className="aboutButton">
-                                        <a href={spotlight.url}
+                                        <a href={get(spotlight, "url", "")}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="btn-purple"

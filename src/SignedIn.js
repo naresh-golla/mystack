@@ -7,7 +7,11 @@ import Edit from "./Edit";
 // import Bio from "./Edit/Bio";
 import './css/SignedIn.css'
 import Profile from './Profile/Profile';
-
+import {profileStore} from "./services/store-service";
+import { observer } from "mobx-react";
+import HTTPService from './services/http-service';
+import {get} from 'lodash';
+import { JsonKeys } from "./utils/constants";
 
 class SignedIn extends Component {
   constructor(props) {
@@ -24,11 +28,19 @@ class SignedIn extends Component {
         id: "",
         src: "",
         alt: ""
-      }
+      },
+      domain: ""
     }
   }
   componentWillMount() {
 
+  }
+  componentDidMount(){
+    const httpService = new HTTPService();
+    httpService.fetchUserInfo(this.userSession.loadUserData().username).then((response) => {
+      const { domain } = get(response, [JsonKeys.DATA], {});
+      this.setState({ domain });
+    })
   }
   signOut(e) {
     e.preventDefault()
@@ -53,16 +65,24 @@ class SignedIn extends Component {
       }
     })
   }
+
+  setDomain(domain) {
+    this.setState({ domain });
+  }
   render() {
     const usernamefull = this.userSession.loadUserData().username
     const username = usernamefull.split(".")[0]
     return (
       <div className="SignedIn" >
-        <NavBar username={username} user={usernamefull} signOut={this.signOut} />
-
+        <NavBar username={username} user={usernamefull} signOut={this.signOut} viewProfile= {profileStore}/>
         <Switch>
-          <Route path="/edit/" component={(props) => <Edit username={usernamefull} {...props} />} />
-          <Route path={`/${username}`} component={() => <Profile username={usernamefull} />} />
+          <Route path="/edit/" component={(props) => <Edit 
+                                                          username={usernamefull} 
+                                                          {...props} 
+                                                          userid={username} 
+                                                          setDomain={(data) => this.setDomain(data)} />
+                                          }  />
+          <Route path={"/"+ this.state.domain} component={() => <Profile username={usernamefull} />} />
         </Switch>
 
       </div>
@@ -70,4 +90,4 @@ class SignedIn extends Component {
   }
 }
 
-export default SignedIn
+export default SignedIn;
