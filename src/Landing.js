@@ -3,6 +3,7 @@ import { UserSession } from 'blockstack'
 import { appConfig } from './utils/constants'
 import './css/Landing.css'
 import globe from "./images/space_white.svg";
+import logo from "./images/default-monochrome.svg"
 class Landing extends Component {
 
   constructor() {
@@ -21,8 +22,7 @@ class Landing extends Component {
         <div className="header" style={{ "display": "flex", "justifyContent": "space-between", "paddingTop": "3%","paddingRight":"5%" }}>
           <div style={{ "paddingLeft": "10%" }}>
 
-            <h1>MyStack
-              </h1>
+          <img src={logo} style={{ "width": "100%"}}/>
           </div>
           <div className="sub-menu" style={{ "display": "flex" }}>
             <div id="menu-item-45"
@@ -54,6 +54,7 @@ class Landing extends Component {
             <span>
 
               <h1 style={{ "color": "#3bccfc" }}>MyStack</h1>
+             
             </span>
 
             <ul>

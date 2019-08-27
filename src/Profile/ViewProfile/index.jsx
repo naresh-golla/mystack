@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react";
 import { get } from 'lodash';
-
+import { Helmet } from 'react-helmet';
 class ViewProfile extends React.Component {
 
     componentDidMount() {
@@ -16,8 +16,15 @@ class ViewProfile extends React.Component {
         const { bio, about, spotlight, education, work, design, socialprofile, pic } = viewProfile;
         console.log(viewProfile, "viewProfile....");
         console.log(design, "color");
-
+        let title="Bio,edu,exp";
+        var description="about";
         return (
+            <React.Fragment>
+                <Helmet>
+                    <title>{title}</title>
+                    <meta name="description" content={description} />
+                </Helmet>
+            
             <div className="bg"
                 style={{ background: design }}>
                 <div className="alignCenter">
@@ -89,6 +96,7 @@ class ViewProfile extends React.Component {
                     </div>
                 </div>
             </div>
+            </React.Fragment>
         );
     }
 }
