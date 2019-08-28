@@ -20,7 +20,7 @@ class App extends Component {
             throw new Error('This app requires a username.')
           }
           //window.location = `/${userData.username.split(".")[0]}`
-          window.location = `/edit/bio`
+          //window.location = `/edit/`
         })
     }
   }

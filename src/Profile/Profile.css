@@ -4,6 +4,27 @@
 .paddingTop{
     padding-top: 20%;
 }
+.btn-profile {
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    padding: 15px 20px;
+    min-width: 400px;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;;
+    -webkit-box-shadow: 0 7px 14px rgba(98,98,98,.44);
+    box-shadow: 0 7px 14px rgba(98,98,98,.44);
+    text-align: center;
+    -webkit-transition: -webkit-box-shadow .4s;
+    transition: -webkit-box-shadow .4s;
+    -o-transition: box-shadow .4s;
+    transition: box-shadow .4s;
+    transition: box-shadow .4s,-webkit-box-shadow .4s;
+}
 .bg{
     background-color: #26A0D9;
     background: linear-gradient(135deg, #26A0D9 0%, #26A0D9 30%, #41ffff 100%) fixed;

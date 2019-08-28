@@ -47,11 +47,11 @@ class ViewProfile extends React.Component {
                                         <a href={get(spotlight, "url", "")}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="btn-purple"
-                                            style={{ background: design }}
+                                            className="btn-profile"
+                                            style={{ background: design}}
                                         >
-                                            {/* <i className={`${spotlight.icon} facon`}></i>
-                                            {spotlight.title}{" "} */}
+                                            <i className={`${spotlight.icon} facon`}></i>
+                                            {spotlight.title}{" "}
                                         </a>
                                     </div>
                                 </section>
@@ -84,11 +84,11 @@ class ViewProfile extends React.Component {
                                 </section>
                                 <section>
                                     <div className="socialIcons">
-                                        <ul className="list-inline">
+                                        {/* <ul className="list-inline">
                                             {socialprofile.map(ele => (
                                                 <li className="list-inline-item"><a href={ele.url}><i className={ele.icon} title={ele.title}></i></a></li>
                                             ))}
-                                        </ul>
+                                        </ul> */}
                                     </div>
                                 </section>
                             </div>

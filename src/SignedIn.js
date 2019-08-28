@@ -7,10 +7,10 @@ import Edit from "./Edit";
 // import Bio from "./Edit/Bio";
 import './css/SignedIn.css'
 import Profile from './Profile/Profile';
-import {profileStore} from "./services/store-service";
+import { profileStore } from "./services/store-service";
 import { observer } from "mobx-react";
 import HTTPService from './services/http-service';
-import {get} from 'lodash';
+import { get } from 'lodash';
 import { JsonKeys } from "./utils/constants";
 
 class SignedIn extends Component {
@@ -35,7 +35,7 @@ class SignedIn extends Component {
   componentWillMount() {
 
   }
-  componentDidMount(){
+  componentDidMount() {
     const httpService = new HTTPService();
     httpService.fetchUserInfo(this.userSession.loadUserData().username).then((response) => {
       const { domain } = get(response, [JsonKeys.DATA], {});
@@ -74,15 +74,18 @@ class SignedIn extends Component {
     const username = usernamefull.split(".")[0]
     return (
       <div className="SignedIn" >
-        <NavBar username={username} user={usernamefull} signOut={this.signOut} viewProfile= {profileStore}/>
+        <NavBar username={username} user={usernamefull} signOut={this.signOut} viewProfile={profileStore} />
         <Switch>
-          <Route path="/edit/" component={(props) => <Edit 
-                                                          username={usernamefull} 
-                                                          {...props} 
-                                                          userid={username} 
+          {(this.state.domain !== "") ? "" : (
+          <Route path="/edit/Bio" component={(props) => <Edit
+                                                          username={usernamefull}
+                                                          {...props}
+                                                          userid={username}
                                                           setDomain={(data) => this.setDomain(data)} />
-                                          }  />
-          <Route path={"/"+ this.state.domain} component={() => <Profile username={usernamefull} />} />
+          } />
+          )}
+          <Route path={"/" + this.state.domain} component={() => <Profile username={usernamefull} />} />
+          <Route exact path="/" render={() => <Redirect to={"/"+this.state.domain}/>}/>
         </Switch>
 
       </div>
