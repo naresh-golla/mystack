@@ -12,7 +12,9 @@ class Domain extends Component {
     constructor() {
         super();
         this.state = {
-            customdomain: ""
+            customdomain: "",
+            errorMsg : false
+            
         }
     }
     changedValue = (e) => {
@@ -20,13 +22,28 @@ class Domain extends Component {
         this.setState({
             customdomain: e.target.value
         })
+        if(this.state.customdomain.length >= 2){
+            this.setState({
+                errorMsg : false
+            })
+          }
         console.log(e.target)
     }
-    submitHandler = (e) => {        
-        this.props.createProfile.createUser();
-        this.props.setDomain(this.state.customdomain);
-        this.props.history.push("/" + this.state.customdomain)
+    submitHandler = (e) => {  
+        if(this.state.customdomain.length >= 3){
+            this.props.createProfile.createUser();
+            this.props.setDomain(this.state.customdomain);
+            this.props.history.push("/" + this.state.customdomain)
+            //window.location.reload();
+            
+        }else {
+            this.setState({
+                errorMsg : true
+            })
+        }   
+       
     }
+   
     render() {
         const DomainSchema = Yup.object().shape({
             domain: Yup.string().min(3)
@@ -50,30 +67,6 @@ class Domain extends Component {
                             <h2 className="text-info">https://mystack.id/{this.state.customdomain}</h2>
                         </div>
                         <div style={{ "paddingTop": "5%" }}>
-                            {/* <Formik
-                                initialValues={{
-                                    domain: '',
-                                }}
-                                validationSchema={DomainSchema}
-                                onSubmit={fields => {
-                                    console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
-                                }}
-                                render={({ errors, status, touched }) => (
-                                    <Form>
-                                        <div className="form-group">
-                                            <Label htmlFor="domain">Enter name for your customised link </Label>
-                                            <Field name="domain" type="text"
-                                                placeholder="Enter your domain"
-                                                onKeyUp={this.changedValue((e) => { console.log(e) })}
-                                                className={'form-control' + (errors.domain && touched.domain ? ' is-invalid' : '')} />
-                                            <ErrorMessage name="domain" component="div" className="invalid-feedback" />
-                                        </div>
-                                        <div className="form-group">
-                                            <button type="submit" className="btn btn-primary mr-2">Submit</button>
-                                        </div>
-                                    </Form>
-                                )}
-                            /> */}
                              <div className="form-group">
                                             <Label htmlFor="domain">Enter name for your customised link </Label>
                                             <Input name="domain" type="text"
@@ -84,6 +77,7 @@ class Domain extends Component {
                                                 />
                                             <ErrorMessage name="domain" component="div" className="invalid-feedback" />
                                         </div>
+                                        {this.state.errorMsg ? (<p style={{"color":"red"}}>please enter minimum three charcters</p>):""}
                                         <div className="form-group">
                                             <button type="submit" onClick={this.submitHandler} className="btn btn-primary mr-2">Submit</button>
                                         </div>

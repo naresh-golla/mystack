@@ -26,7 +26,9 @@ class Edit extends Component {
                 src: "",
                 alt: ""
             }
+            
         }
+       // this.updatedData = this.updatedData.bind(this)
     }
     getAboutDetails = ({ id, icon, title }) => {
         this.setState({
@@ -48,7 +50,7 @@ class Edit extends Component {
             }
         })
     }
-    render() {
+      render() {
         console.log(this.state.getColorDetails)
         return (
             <div style={{ "marginTop": "5%" }}>
@@ -81,7 +83,7 @@ class Edit extends Component {
                     />
                     <Route
                         path="/edit/Link"
-                        component={props => <Link createProfile={createProfile} {...props} setAboutDetails={this.state.aboutDetails} />}
+                        component={props => <Link setAboutDetails={this.state.aboutDetails} createProfile={createProfile} {...props}  />}
                     />
                     <Route
                         path="/edit/Domain"

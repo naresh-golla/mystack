@@ -23,7 +23,8 @@ class About extends Component {
                 { id: "12", icon: "fa fa-user-o", title: "My tinder Profile" },
                 { id: "13", icon: "fa fa-calendar", title: "Attend my event" },
                 { id: "14", icon: "fa fa-thumbs-up", title: "Support my campaign" },
-            ]
+            ],
+            validationMsg :false
         }
     }
     handleClick = (item) => {
@@ -31,12 +32,21 @@ class About extends Component {
         this.props.createProfile.setSpotlightValue(item);
         this.setState({
             activeDiv: item.id,
-            activeItem: item
+            activeItem: item,
+            validationMsg :false
         });
     }
     nextClick = (e) => {
         e.preventDefault();
-        this.props.getAboutDetails(this.state.activeItem)
+        if(this.state.activeDiv !== '')
+        {
+            this.props.getAboutDetails(this.state.activeItem)
+        }
+        else {
+            this.setState({
+             validationMsg : true
+            });
+        }
     }
 
     render() {
@@ -67,6 +77,7 @@ class About extends Component {
                                         })}
                                     </div>
                                     <p />
+                                    {this.state.validationMsg ? (<p style={{"color":"red"}}>select about button</p>):""}
                                     <Button onClick={(e) => this.nextClick(e)}>Submit</Button>
                                 </Col>
 

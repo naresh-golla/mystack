@@ -50,8 +50,8 @@ class ViewProfile extends React.Component {
                                             className="btn-purple"
                                             style={{ background: design }}
                                         >
-                                            <i className={`${spotlight.icon} facon`}></i>
-                                            {spotlight.title}{" "}
+                                            {/* <i className={`${spotlight.icon} facon`}></i>
+                                            {spotlight.title}{" "} */}
                                         </a>
                                     </div>
                                 </section>

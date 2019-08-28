@@ -11,6 +11,7 @@ class Link extends Component {
         this.state = {}
     }
     render() {
+        
         const LinkSchema = Yup.object().shape({
             link: Yup.string()
                 .required("Required")

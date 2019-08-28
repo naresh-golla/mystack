@@ -10,7 +10,8 @@ class Pic extends Component {
         const src = ''
         this.state = {
             preview: null,
-            src
+            src,
+            err:false
         }
     }
 
@@ -27,11 +28,26 @@ class Pic extends Component {
         if (elem.target.files[0].size > 216800) {
             alert("File is too big!");
             elem.target.value = "";
-        };
+        }else {
+            this.setState({
+              src : elem.target.files[0]
+            })
+        }
+        
     }
 
     submitHandler = () => {
-        this.props.history.push("/edit/location")
+        if(this.state.src !== ""){
+            this.setState({
+                err:false
+                })
+            this.props.history.push("/edit/location");
+        }
+        else if(this.state.src === ""){
+            this.setState({
+            err:true
+            })
+        }
     }
     render() {
         return (
@@ -65,7 +81,10 @@ class Pic extends Component {
                             </div>
                         </Row>
                         <Row>
-                            <Button onClick={() => this.submitHandler()} className="btn btn-outline-primary">Submit</Button>
+                            {this.state.err ? (<p style={{"color":"red"}}>upload your pic</p>):""}
+                        </Row>
+                        <Row>
+                            <Button onClick={this.submitHandler} className="btn btn-outline-primary">Submit</Button>
                         </Row>
                     </Col>
                 </Row>

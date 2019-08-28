@@ -22,6 +22,7 @@ class NavBar extends Component {
   }
 componentDidMount(){
   this.props.viewProfile.fetchUserInfo(this.props.user);
+  //document.getElementById('some').click()
 }
   render() {
     const { username } = this.props
@@ -34,14 +35,18 @@ componentDidMount(){
             {/* <li className="nav-item">
             <Link className="nav-link" to={`/${this.props.viewProfile.domain}`}>{username}</Link>
           </li> */}
-            {includes(pathName, `${username}`) && <button
-              className="btn btn-primary"
-              onClick={(e) => this.editHandler(e)}
-            >Edit
-            </button>}
+            {
+              (includes(pathName, "edit"))? 
+           "":
+          (<button
+          className="btn btn-primary"
+          onClick={(e) => this.editHandler(e)}
+          >Edit
+          </button>)
+        }
           </ul>
           <button>
-            <Link className="nav-link" to={`/${this.props.viewProfile.domain}`}>{username}</Link>
+            <Link className="nav-link" id="some" to={`/${this.props.viewProfile.domain}`}>{username}</Link>
           </button>
           <button
             className="btn btn-primary"

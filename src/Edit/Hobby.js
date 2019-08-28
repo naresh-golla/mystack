@@ -95,7 +95,9 @@ class Hobby extends Component {
                 " Refrigeration Mechanic ",
                 " Nurse educator ",
             ],
-            hobbyintrestSelected: []
+            hobbyintrestSelected: [],
+            validationCheck : false,
+            checkIntrestedSelectedLength:true
         }
     }
     searchFun = (e) => {
@@ -117,19 +119,39 @@ class Hobby extends Component {
             this.setState({
                 hobbyintrestSelected: [...this.state.hobbyintrestSelected, ...valPushed]
             })
+            if(this.state.hobbyintrestSelected.length <= 3){
+                this.setState({
+                    checkIntrestedSelectedLength :!this.state.checkIntrestedSelectedLength
+                })
+            }
         } else {
             let valRemoved = this.state.hobbyintrestSelected.splice(this.state.hobbyintrestSelected.indexOf(val), 1);
             console.log(valRemoved);
             let removedlist = [];
             console.log(removedlist.push(valRemoved));
+            if(this.state.hobbyintrestSelected.length <= 3){
+                this.setState({
+                    checkIntrestedSelectedLength :!this.state.checkIntrestedSelectedLength
+                })
+            }
             // this.setState({
             //     hobbyintrestSelected: [ ...valRemoved]
             // })
         }
     }
     submitHobby = () => {
-        this.props.createProfile.setHobby(...this.state.hobbyintrestSelected);
-        this.props.history.push("/edit/about")
+        this.setState({
+            validationCheck : !this.state.validationCheck
+        })
+        if(this.state.hobbyintrestSelected.length > 0 &&  this.state.hobbyintrestSelected.length <= 3){
+            this.props.createProfile.setHobby(...this.state.hobbyintrestSelected);
+            this.props.history.push("/edit/about")
+        }else {
+            this.setState({
+                validationCheck : !this.state.validationCheck
+            })
+        }
+       
     }
     render() {
         console.log(this.state.hobbyintrestSelected);
@@ -165,8 +187,8 @@ class Hobby extends Component {
                             }
 
                         </div>
-                        {this.state.hobbyintrestSelected.length === 0 ? <p className="errormsg">Selection is required</p> : ""}
-                        {(this.state.hobbyintrestSelected.length > 3) ? <p className="errormsg">Too many selections, you can select maximum 3 selections</p> : ""}
+                        {this.state.hobbyintrestSelected.length === 0 && this.state.validationCheck ? <p className="errormsg">Selection is required</p> : ""}
+                        {(this.state.hobbyintrestSelected.length > 3 && this.state.checkIntrestedSelectedLength) ? <p className="errormsg">Too many selections, you can select maximum 3 selections</p> : ""}
 
                         <Button onClick={() => this.submitHobby()}>Submit</Button>
 

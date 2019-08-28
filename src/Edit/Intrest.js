@@ -54,7 +54,8 @@ class Intrest extends Component {
                 "Cult",
                 "Meetup"
             ],
-            intrestSelected: []
+            intrestSelected: [],
+            validationCheck : false
         }
     }
     searchFun = (e) => {
@@ -83,8 +84,18 @@ class Intrest extends Component {
     }
 
     submitInterests = () => {
-        this.props.createProfile.setInterests(...this.state.intrestSelected)
-        this.props.history.push("/edit/hobby")
+        this.setState({
+            validationCheck : !this.state.validationCheck
+        })
+        if(this.state.intrestSelected.length >=3 ){
+            this.props.createProfile.setInterests(...this.state.intrestSelected)
+            this.props.history.push("/edit/hobby")
+        }else {
+            this.setState({
+                validationCheck : !this.state.validationCheck
+            })
+        }
+        
     }
     render() {
         console.log(this.state.intrestSelected);
@@ -119,7 +130,7 @@ class Intrest extends Component {
                             }
 
                         </div>
-                        {this.state.intrestSelected.length === 0 ? <p className="errormsg">selection is required</p> : ""}
+                        {(this.state.intrestSelected.length === 0 && this.state.validationCheck) ? <p className="errormsg">selection is required</p> : ""}
                         {(this.state.intrestSelected.length <= 2 && this.state.intrestSelected.length > 0) ? <p className="errormsg">Mininum 3 selections is required</p> : ""}
                         {this.state.intrestSelected.length > 5 ? <p className="errormsg">Maximum 5 selections only</p> : ""}
                         <Button onClick={() => this.submitInterests()}>Submit</Button>

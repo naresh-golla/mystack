@@ -46,14 +46,14 @@ const EditSocialProfiles = observer((props) => {
              </Accordion.Toggle>
                 <Accordion.Collapse eventKey="6">
                     <Card.Body className="card-body">
-                        {socialMediaButtons.map((item, index) => (
+                        {/* {socialMediaButtons.map((item, index) => (
                             <div className="spotButton" key={index} onClick={() => handleSocialprofiles(item)}>
-                                <a href="#">
+                                <a onClick={(e)=>{e.preventDefault()}}>
                                     <i className={item.icon} />
                                     <span>{item.title}</span>
                                 </a>
                             </div>
-                        ))}
+                        ))} */}
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>
