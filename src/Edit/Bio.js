@@ -21,11 +21,11 @@ class Bio extends Component {
         const SignupSchema = Yup.object().shape({
             firstName: Yup.string()
                 .min(2, "First name is Too Short!")
-                .max(12, "First name is Too Long!")
+                .max(20, "First name is Too Long!")
                 .required("Required"),
             lastName: Yup.string()
                 .min(2, "First name is Too Short!")
-                .max(10, "First name is Too Long!")
+                .max(20, "First name is Too Long!")
                 .required("Required"),
             email: Yup.string().email("Invalid email")
         });
