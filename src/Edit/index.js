@@ -83,14 +83,6 @@ class Edit extends Component {
                         path="/edit/Link"
                         component={props => <Link createProfile={createProfile} {...props} setAboutDetails={this.state.aboutDetails} />}
                     />
-                    {/* <Route
-                        path="/edit/Design"
-                        component={props => <Design {...props} getColorDetails={this.getColorDetails} />}
-                    /> 
-                    <Route
-                        path="/edit/Design"
-                        component={props => <Design {...props} getColorDetails={this.getColorDetails} />}
-                    />*/}
                     <Route
                         path="/edit/Domain"
                         component={props => <Domain 
