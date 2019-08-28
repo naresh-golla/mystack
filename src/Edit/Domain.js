@@ -27,13 +27,14 @@ class Domain extends Component {
                 errorMsg : false
             })
           }
-        console.log(e.target)
     }
     submitHandler = (e) => {  
+        debugger;
         if(this.state.customdomain.length >= 3){
             this.props.createProfile.createUser();
             this.props.setDomain(this.state.customdomain);
-            this.props.history.push("/" + this.state.customdomain)
+            this.props.history.push("/" + this.state.customdomain);
+            console.log("domain",this.state.customdomain);
             //window.location.reload();
             
         }else {

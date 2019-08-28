@@ -49,7 +49,7 @@ class Landing extends Component {
         </div >
 
 
-        <section className="section-banner section-banner--variant2" style={{"height" : "100vh"}}>
+        <section className="section-banner section-banner--variant2" style={{"height" : "100vh","minHeight":"600px"}}>
           <div className="nav__dd nav__dd-static visible-xs-block">
             <span>
 
