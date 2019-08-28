@@ -77,7 +77,8 @@ class Location extends Component {
                                             <Field name="city" type="text"
                                                 style={{ "paddingLeft": "30px" }}
                                                 placeholder="Enter your city"
-                                                id="autocomplete" className={'form-control' + (errors.city && touched.city ? ' is-invalid' : '')} />
+                                                //id="autocomplete" 
+                                                className={'form-control' + (errors.city && touched.city ? ' is-invalid' : '')} />
                                             <span><i className="fa fa-map-marker" style={{ "color": "#55aaaa", "fontSize": "28px", "position": "absolute", "marginTop": "-33px", "marginLeft": "8px" }}></i></span>
                                             <ErrorMessage name="city" component="div" className="invalid-feedback" />
                                         </div>
