@@ -28,12 +28,17 @@ class Domain extends Component {
             })
           }
     }
+    componentDidUpdate(){
+        if(this.props.createProfile.redirectToDomain) {
+            this.props.history.push("/" + this.state.customdomain);
+        }
+    }
     submitHandler = (e) => {  
         debugger;
         if(this.state.customdomain.length >= 3){
             this.props.createProfile.createUser();
             this.props.setDomain(this.state.customdomain);
-            this.props.history.push("/" + this.state.customdomain);
+            // this.props.history.push("/" + this.state.customdomain);
             console.log("domain",this.state.customdomain);
             //window.location.reload();
             

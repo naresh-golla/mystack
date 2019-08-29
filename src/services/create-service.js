@@ -20,6 +20,7 @@ class CreateProfileStore {
     hobby = [];
     domain = "";
     error = "";
+    redirectToDomain = "";
 
     constructor(profileApi) {
         this.profileApi = profileApi;
@@ -107,7 +108,8 @@ class CreateProfileStore {
             domain: this.domain
         };
         this.profileApi.createUser(params).then((response) => {
-            this.error = "";
+
+            this.redirectToDomain = this.domain;
         }).catch(error => { this.error = "Create User Failed" });
     }
 
@@ -153,7 +155,7 @@ decorate(CreateProfileStore, {
     setDomain: action,
     /**Error */
     error: observable,
-
+    redirectToDomain: observable,
 });
 const httpService = new HTTPService();
 export const createProfile = new CreateProfileStore(httpService);
