@@ -17,7 +17,7 @@ class Link extends Component {
                 .required("Required")
                 .url("Invalid url")
         });
-        console.log(this.props.setAboutDetails)
+        console.log(this.props.setAboutDetails,"icons.....")
         return (
             <Container fluid={true} >
                 <Row>

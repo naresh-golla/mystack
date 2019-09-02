@@ -16,6 +16,7 @@ class Landing extends Component {
     this.userSession.redirectToSignIn()
   }
   // onClick={this.signIn.bind(this)}
+
   render() {
     return (
       <div className="wrapper">

@@ -14,7 +14,7 @@ const EditProfile = (props) => {
     return (
         <div className="editLeftPanel">
             <div className="text-center">
-                <h1>Edit</h1>
+                <h1>Edit profile</h1>
             </div>
             <Accordion defaultActiveKey="0" className="myaccordion">
                 <EditBio editProfile={profileStore} />

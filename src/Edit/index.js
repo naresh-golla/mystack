@@ -21,41 +21,41 @@ class Edit extends Component {
                 icon: "",
                 title: ""
             },
-            getColorDetails: {
-                id: "",
-                src: "",
-                alt: ""
-            }
+            // getColorDetails: {
+            //     id: "",
+            //     src: "",
+            //     alt: ""
+            // }
             
         }
-       // this.updatedData = this.updatedData.bind(this)
-    }
-    getAboutDetails = ({ id, icon, title }) => {
+      }
+    getAboutDetails = (id, icon, title ) => {
+        console.log(id,icon,title,"details........")
         this.setState({
             aboutDetails: {
                 id: id,
                 icon: icon,
                 title: title
             }
-        }, () => {
+        },
+         () => {
             this.props.history.push("/edit/Link");
-        })
+        }
+        )
     }
-    getColorDetails = (id, src, alt) => {
-        this.setState({
-            getColorDetails: {
-                id: id,
-                src: src,
-                alt: alt
-            }
-        })
-    }
+    // getColorDetails = (id, src, alt) => {
+    //     this.setState({
+    //         getColorDetails: {
+    //             id: id,
+    //             src: src,
+    //             alt: alt
+    //         }
+    //     })
+    // }
       render() {
-        console.log(this.state.getColorDetails)
         return (
             <div style={{ "marginTop": "5%" }}>
                 <Progress />
-
                 <Switch>
                     <Route
                         exact path="/edit/Bio"
@@ -83,15 +83,15 @@ class Edit extends Component {
                     />
                     <Route
                         path="/edit/Link"
-                        component={props => <Link setAboutDetails={this.state.aboutDetails} createProfile={createProfile} {...props}  />}
+                        component={props => <Link createProfile={createProfile} setAboutDetails={this.state.aboutDetails}  {...props}  />}
                     />
                     <Route
                         path="/edit/Domain"
                         component={props => <Domain 
-                                                    createProfile={createProfile} 
-                                                    {...props} 
-                                                    userid={this.props.userid}
-                                                    setDomain={(data) => this.props.setDomain(data)} />}
+                                                createProfile={createProfile} 
+                                                {...props} 
+                                                userid={this.props.userid}
+                                                setDomain={(data) => this.props.setDomain(data)} />}
                     />
                 </Switch>
             </div>

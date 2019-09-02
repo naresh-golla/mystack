@@ -91,27 +91,7 @@ class CreateProfileStore {
     setDomain(data) {
         this.domain = data;
     }
-
-    createUser() {
-        const params = {
-            username: this.username,
-            bio: this.bio,
-            about: this.about,
-            spotlight: this.spotlight,
-            education: this.education,
-            work: this.work,
-            design: this.design,
-            socialprofile: this.socialprofile,
-            pic: this.pic,
-            interests: this.interests,
-            hobby: this.hobby,
-            domain: this.domain
-        };
-        this.profileApi.createUser(params).then((response) => {
-
-            this.redirectToDomain = this.domain;
-        }).catch(error => { this.error = "Create User Failed" });
-    }
+        
 
 }
 
@@ -158,4 +138,4 @@ decorate(CreateProfileStore, {
     redirectToDomain: observable,
 });
 const httpService = new HTTPService();
-export const createProfile = new CreateProfileStore(httpService);
+export const createProfile = new CreateProfileStore();

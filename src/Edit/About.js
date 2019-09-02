@@ -20,7 +20,7 @@ class About extends Component {
                 { id: "9", icon: "fa fa-file-text", title: "Read my articles" },
                 { id: "10", icon: "fa fa-shopping-cart", title: "Visit my store" },
                 { id: "11", icon: "fa fa-newspaper-o", title: "Sign up for my news letter" },
-                { id: "12", icon: "fa fa-user-o", title: "My tinder Profile" },
+                { id: "12", icon: "fa fa-user-o", title: "My Profile" },
                 { id: "13", icon: "fa fa-calendar", title: "Attend my event" },
                 { id: "14", icon: "fa fa-thumbs-up", title: "Support my campaign" },
             ],
@@ -28,8 +28,7 @@ class About extends Component {
         }
     }
     handleClick = (item) => {
-        // console.log(item)
-        this.props.createProfile.setSpotlightValue(item);
+        // console.log(item)        
         this.setState({
             activeDiv: item.id,
             activeItem: item,
@@ -39,8 +38,9 @@ class About extends Component {
     nextClick = (e) => {
         e.preventDefault();
         if(this.state.activeDiv !== '')
-        {
-            this.props.getAboutDetails(this.state.activeItem)
+        {   this.props.getAboutDetails(this.state.activeItem);
+            this.props.createProfile.setSpotlightValue(this.state.activeItem);          
+            //this.props.history.push("/edit/Link");
         }
         else {
             this.setState({

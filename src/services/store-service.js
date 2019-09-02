@@ -17,6 +17,7 @@ class AppProfileStore {
     socialprofile = [];
     pic = "";
     domain = "";
+    interests=[];
 
     constructor(profileApi) {
         this.profileApi = profileApi;
@@ -25,7 +26,7 @@ class AppProfileStore {
     fetchUserInfo(username) {
         this.username = username;
         this.profileApi.fetchUserInfo(username).then((res) => {
-            const { bio, about, spotlight, education, work, design, socialprofile, pic ,domain} = get(res, [JsonKeys.DATA], {});
+            const { bio, about, spotlight, education, work, design, socialprofile, pic ,domain,interests} = get(res, [JsonKeys.DATA], {});
             this.bio = bio;
             this.about = about;
             this.spotlight = spotlight;
@@ -35,6 +36,7 @@ class AppProfileStore {
             this.socialprofile = socialprofile;
             this.pic = pic;
             this.domain = domain;
+            this.interests = interests;
         });
     }
 
@@ -110,6 +112,12 @@ class AppProfileStore {
             this.pic = data
         });
     }
+    setInterests(data){
+        this.interests.push(data);
+        this.profileApi.updateUserInfo(this.username,{ interests:this.interests }).then((res)=>{
+            console.info(res);
+        })
+    }
 }
 
 /**Define the observable, action, computed variables inside the decorate */
@@ -124,6 +132,7 @@ decorate(AppProfileStore, {
     socialprofile: observable,
     pic: observable,
     domain: observable,
+    interests:observable,
     setBio: action,
     setAboutValue: action,
     setSpotlightValue: action,
@@ -131,7 +140,8 @@ decorate(AppProfileStore, {
     setWork: action,
     setDesignValue: action,
     setSocialProfileValue: action,
-    setPic: action
+    setPic: action,
+    setInterests: action
 });
 const httpService = new HTTPService();
 export const profileStore = new AppProfileStore(httpService);

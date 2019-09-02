@@ -76,18 +76,6 @@ class SignedIn extends Component {
       <div className="SignedIn" >
         <NavBar username={username} user={usernamefull} signOut={this.signOut} viewProfile={profileStore} />
         <Switch>
-          {(this.state.domain !== "") ? "" : (
-          <Route exact path="/edit/Bio" component={(props) => <Edit
-                                                          username={usernamefull}
-                                                          {...props}
-                                                          userid={username}
-                                                          setDomain={(data) => this.setDomain(data)} />
-          } />
-          )}
-          <Route exact path={"/" + this.state.domain} component={() => <Profile username={usernamefull} />} />
-          <Route exact path="/" render={() => <Redirect to={"/"+this.state.domain}/>}/>
-        </Switch>
-        {/* <Switch>
         <Route path="/edit/" component={(props) => <Edit
                                                           username={usernamefull}
                                                           {...props}
@@ -96,9 +84,9 @@ class SignedIn extends Component {
           } />
           )}
           <Route  path="/edit/" render={() => <Redirect to={"/edit/Bio/"}/>}/>
-          <Route  path={"/" + this.state.domain} component={() => <Profile username={usernamefull} />} />
           <Route exact path="/" render={() => <Redirect to={"/"+this.state.domain}/>}/>
-        </Switch> */}
+          <Route exact path={"/" + this.state.domain} component={() => <Profile username={usernamefull} />} />
+        </Switch>
       </div>
     );
   }
